@@ -10,6 +10,7 @@ const q4 = document.getElementById('question-4');
 const q5 = document.getElementById('question-5');
 const q6 = document.getElementById('question-6');
 const q7 = document.getElementById('question-7');
+const q8 = document.getElementById('question-8');
 
 e('1-yes', 'click', () => {
     console.log('Remove US cities');
@@ -122,14 +123,25 @@ e('6-casual', 'click', () => {
 });
 
 e('7-yes', 'click', () => {
-    console.log('Display family attractions.');
-    questionAdvance(q7);
+    console.log('Remove cities with a score lower than 2');
+    questionAdvance(q7, q8);
 });
 
 e('7-no', 'click', () => {
-    console.log('Display non family attractions.');
-    questionAdvance(q7);
+    console.log('Do nothing');
+    questionAdvance(q7, q8);
 });
+
+e('8-yes', 'click', () => {
+    console.log('Display family attractions.');
+    questionAdvance(q8);
+});
+
+e('8-no', 'click', () => {
+    console.log('Display non family attractions.');
+    questionAdvance(q8);
+});
+
 
 function questionAdvance(currentQuestion, nextQuestion) {
     currentQuestion.style.display = 'none';
