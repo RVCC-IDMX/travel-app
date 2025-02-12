@@ -1,6 +1,6 @@
 ---
 title: City's Name
-date: 00-00-0000
+date: 0000-00-00
 description: Short description of the city's hilights in about a sentence.
 size: 0
 locationState: NJ
@@ -13,8 +13,8 @@ forests: 0
 coast: 0
 desert: 0
 cityscape: 0
-naturalWonder: 0
 jungle: 0
+naturalWonder: 0
 amusementPark: 0
 zoo: 0
 aquarium: 0
