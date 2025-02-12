@@ -15,13 +15,13 @@ desert: 0
 cityscape: 3
 naturalWonder: 2
 jungle: 0
-amusementPark: 0
+amusementPark: 3
 zoo: 1
 aquarium: 1
 museum: 0
 monument: 3
 historicSite: 2
-stadium: 0
+stadium: 1
 religious: 3
 nature: 1
 nightLife: 3
@@ -36,4 +36,5 @@ Tokyo, Japan features one of the most futuristic and popular cities. It's a city
 ![Cityscape of Tokyo](Tokyo.jpeg "Tokyo, Japan")
 
 Credit:https://stock.adobe.com/search?k=tokyo+cityscape&asset_id=251121174
+
 Adobe Education License
