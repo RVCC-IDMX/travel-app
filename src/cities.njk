@@ -1,0 +1,17 @@
+---
+permalink: cities.json
+---
+[
+{%- for city in collections.cities %}
+    {
+        "name":"{{city.data.title}}",
+        "description":"{{city.data.description}}",
+        "date":"{{city.data.date}}",
+        "size":"{{city.data.size}}",
+        "location" : {
+            "state": "{{city.data.locationState}}",
+            "country": "{{city.data.locationCountry}}"
+        }
+    }{% if not loop.last %},{% endif %}
+{%- endfor %}
+]
