@@ -11,17 +11,16 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.ignores.add("_site");
 
     //Grab all cities
-    eleventyConfig.addCollection("cities", function(collectionApi) {
+    eleventyConfig.addCollection("cities", function (collectionApi) {
         return collectionApi.getFilteredByGlob("./src/cities/*/index.md");
     })
 
     return {
         markdownTemplateEngine: "njk",
         htmlTemplateEngine: "njk",
-        dir : {
+        dir: {
             input: "./src",
             output: "./_site"
         }
-}
-
+    }
 }

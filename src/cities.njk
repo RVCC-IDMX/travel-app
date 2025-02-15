@@ -11,7 +11,38 @@ permalink: cities.json
         "location" : {
             "state": "{{city.data.locationState}}",
             "country": "{{city.data.locationCountry}}"
-        }
+        },
+        "weather" : {
+            "hot": "{{city.data.hotWeather}}",
+            "cold": "{{city.data.coldWeather}}",
+            "wet": "{{city.data.wetWeather}}"
+        },
+        "environment" : {
+            "mountains": "{{city.data.mountains}}",
+            "forests": "{{city.data.forests}}",
+            "coast": "{{city.data.coast}}",
+            "desert": "{{city.data.desert}}",
+            "cityscape": "{{city.data.cityscape}}",
+            "jungle": "{{city.data.jungle}}",
+            "naturalWonder": "{{city.data.naturalWonder}}"
+        },
+        "attration" : {
+            "amusementPark": "{{city.data.amusementPark}}",
+            "zoo": "{{city.data.zoo}}",
+            "aquarium": "{{city.data.aquarium}}",
+            "museum": "{{city.data.museum}}",
+            "monument": "{{city.data.monument}}",
+            "historicSite": "{{city.data.historicSite}}",
+            "stadium": "{{city.data.stadium}}",
+            "religious": "{{city.data.religious}}"
+        },
+        "nightLife":"{{city.data.nightLife}}",
+        "publicTransit":"{{city.data.publicTransit}}",
+        "food" : {
+            "foodFine": "{{city.data.foodFine}}",
+            "foodCasual": "{{city.data.foodCasual}}"
+        },
+        "shopping":"{{city.data.shopping}}"
     }{% if not loop.last %},{% endif %}
 {%- endfor %}
 ]
