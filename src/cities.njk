@@ -7,42 +7,43 @@ permalink: cities.json
         "name":"{{city.data.title}}",
         "description":"{{city.data.description}}",
         "date":"{{city.data.date}}",
-        "size":"{{city.data.size}}",
+        "size": {{city.data.size}},
         "location" : {
             "state": "{{city.data.locationState}}",
             "country": "{{city.data.locationCountry}}"
         },
         "weather" : {
-            "hot": "{{city.data.hotWeather}}",
-            "cold": "{{city.data.coldWeather}}",
-            "wet": "{{city.data.wetWeather}}"
+            "hot": {{city.data.hotWeather}},
+            "cold": {{city.data.coldWeather}},
+            "wet": {{city.data.wetWeather}}
         },
         "environment" : {
-            "mountains": "{{city.data.mountains}}",
-            "forests": "{{city.data.forests}}",
-            "coast": "{{city.data.coast}}",
-            "desert": "{{city.data.desert}}",
-            "cityscape": "{{city.data.cityscape}}",
-            "jungle": "{{city.data.jungle}}",
-            "naturalWonder": "{{city.data.naturalWonder}}"
+            "mountains": {{city.data.mountains}},
+            "forests": {{city.data.forests}},
+            "coast": {{city.data.coast}},
+            "desert": {{city.data.desert}},
+            "cityscape": {{city.data.cityscape}},
+            "jungle": {{city.data.jungle}},
+            "naturalWonder": {{city.data.naturalWonder}}
         },
         "attration" : {
-            "amusementPark": "{{city.data.amusementPark}}",
-            "zoo": "{{city.data.zoo}}",
-            "aquarium": "{{city.data.aquarium}}",
-            "museum": "{{city.data.museum}}",
-            "monument": "{{city.data.monument}}",
-            "historicSite": "{{city.data.historicSite}}",
-            "stadium": "{{city.data.stadium}}",
-            "religious": "{{city.data.religious}}"
+            "amusementPark": {{city.data.amusementPark}},
+            "zoo": {{city.data.zoo}},
+            "aquarium": {{city.data.aquarium}},
+            "museum": {{city.data.museum}},
+            "monument": {{city.data.monument}},
+            "historicSite": {{city.data.historicSite}},
+            "stadium": {{city.data.stadium}},
+            "religious": {{city.data.religious}}
         },
-        "nightLife":"{{city.data.nightLife}}",
-        "publicTransit":"{{city.data.publicTransit}}",
+        "nightLife": {{city.data.nightLife}},
+        "publicTransit": {{city.data.publicTransit}},
         "food" : {
-            "foodFine": "{{city.data.foodFine}}",
-            "foodCasual": "{{city.data.foodCasual}}"
+            "foodFine": {{city.data.foodFine}},
+            "foodCasual": {{city.data.foodCasual}}
         },
-        "shopping":"{{city.data.shopping}}"
+        "shopping": {{city.data.shopping}},
+        "points": 0
     }{% if not loop.last %},{% endif %}
 {%- endfor %}
 ]
