@@ -8,21 +8,21 @@ locationCountry: France
 hotWeather : 1
 coldWeather: 1
 wetWeather: 1
-mountains: 1
+mountains: 0
 forests: 1
 coast: 0
 desert: 0
 cityscape: 3
 jungle: 0
 naturalWonder: 1
-amusementPark: 1
+amusementPark: 2
 zoo: 1
 aquarium: 1
 museum: 3
 monument: 3
 historicSite: 3
 stadium: 1
-religious: 2
+religious: 3
 nature: 1
 nightLife: 2
 publicTransit: 3

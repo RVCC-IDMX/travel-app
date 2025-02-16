@@ -9,13 +9,13 @@ hotWeather : 3
 coldWeather: 0
 wetWeather: 0
 mountains: 3
-forests: 1
+forests: 0
 coast: 0
 desert: 3
 cityscape: 3
 jungle: 0
 naturalWonder: 2
-amusementPark: 3
+amusementPark: 2
 zoo: 2
 aquarium: 2
 museum: 2

@@ -15,7 +15,7 @@ desert: 0
 cityscape: 3
 jungle: 0
 naturalWonder: 1
-amusementPark: 2
+amusementPark: 1
 zoo: 3
 aquarium: 3
 museum: 3

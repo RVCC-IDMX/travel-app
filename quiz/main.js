@@ -22,22 +22,24 @@ async function createQuiz() {
 
     normalizeSize();
 
+    awardPoints('attraction', 'amusementPark')
+
     console.log('Data collection complete.')
 
     eventHelper('1-yes', 'click', () => {
-        console.log('Removed US cities.');
+        console.log('Remove US cities.');
         cityData = cityData.filter((city) => city.location.country != 'USA');
         questionAdvance(q1, q2);
     });
 
     eventHelper('1-no', 'click', () => {
-        console.log('Removed non US cities.');
+        console.log('Remove non US cities.');
         cityData = cityData.filter((city) => city.location.country == 'USA');
         questionAdvance(q1, q2);
     });
 
     eventHelper('1-no-pref', 'click', () => {
-        console.log('Did nothing.');
+        console.log('Do nothing.');
         questionAdvance(q1, q2);
     });
 
@@ -287,6 +289,17 @@ function normalizeSize() {
         let citySizeInt = parseInt(city.size.replace(/,/g, ''));
 
         city.size = ((citySizeInt - sizeMin) / (sizeMax - sizeMin));
+    });
+}
+
+function awardPoints(category, key) {
+    cityData.forEach(city => {
+        if (!category) {
+            console.log(city[key]);
+        } 
+        else {
+            console.log(city[category][key]);
+        }
     });
 }
 

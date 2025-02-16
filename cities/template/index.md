@@ -1,7 +1,7 @@
 ---
 title: City's Name
 date: 0000-00-00
-description: Short description of the city's hilights in about a sentence.
+description: Short description of the city's highlights in about a sentence.
 size: 0,000,000
 locationState: NJ
 locationCountry: USA
