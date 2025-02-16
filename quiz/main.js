@@ -10,26 +10,37 @@ const q9a = document.getElementById('question-9a');
 const q9b = document.getElementById('question-9b');
 const q10 = document.getElementById('question-10');
 
+const smallCityThreshold = 0.25;
+
+let sizeMax = 0;
+let sizeMin = 0;
+
 let cityData = [];
+
 
 createQuiz();
 
 async function createQuiz() {
     await getCityData();
 
+    normalizeSize();
+
+    console.log('Data collection complete.')
+
     eventHelper('1-yes', 'click', () => {
-        console.log('Remove US cities.');
-        filterArray(location, "USA");
-        //questionAdvance(q1, q2);
+        console.log('Removed US cities.');
+        cityData = cityData.filter((city) => city.location.country != 'USA');
+        questionAdvance(q1, q2);
     });
 
     eventHelper('1-no', 'click', () => {
-        console.log('Remove non US cities.');
+        console.log('Removed non US cities.');
+        cityData = cityData.filter((city) => city.location.country == 'USA');
         questionAdvance(q1, q2);
     });
 
     eventHelper('1-no-pref', 'click', () => {
-        console.log('Do nothing.');
+        console.log('Did nothing.');
         questionAdvance(q1, q2);
     });
 
@@ -45,6 +56,7 @@ async function createQuiz() {
 
     eventHelper('2-longer', 'click', () => {
         console.log('Remove small cities.');
+        cityData = cityData.filter((city) => city.size >= smallCityThreshold);
         questionAdvance(q2, q3);
     });
 
@@ -224,6 +236,11 @@ async function createQuiz() {
     });
 }
 
+function eventHelper(sel, event, func) {
+    let answer = document.getElementById(sel);
+    answer.addEventListener(event, func);
+}
+
 async function getCityData() {
     const url = "/_site/cities.json";
     try {
@@ -239,9 +256,31 @@ async function getCityData() {
     }
 }
 
-function eventHelper(sel, event, func) {
-    let answer = document.getElementById(sel);
-    answer.addEventListener(event, func);
+function normalizeSize() {
+    // Find largest city size
+    cityData.forEach(city => {
+        let citySizeInt = parseInt(city.size.replace(/,/g, ''));
+
+        if (citySizeInt > sizeMax || sizeMax == 0) {
+            sizeMax = citySizeInt;
+        }
+    });
+
+    // Find smallest city size
+    cityData.forEach(city => {
+        let citySizeInt = parseInt(city.size.replace(/,/g, ''));
+
+        if (citySizeInt < sizeMin || sizeMin == 0) {
+            sizeMin = citySizeInt;
+        }
+    });
+
+    // Normalize city size
+    cityData.forEach(city => {
+        let citySizeInt = parseInt(city.size.replace(/,/g, ''));
+
+        city.size = ((citySizeInt - sizeMin) / (sizeMax - sizeMin));
+    });
 }
 
 function questionAdvance(currentQuestion, nextQuestion) {
@@ -253,13 +292,6 @@ function questionAdvance(currentQuestion, nextQuestion) {
     else {
         console.log('Quiz Finished');
     }
-}
 
-function filterArray(test, value) {
-    cityData.forEach(city => {
-        if(city.key != value) {
-            console.log(`Removed: ${city.name}`);
-        }
-        console.log(city.key)
-    });
+    console.log(cityData);
 }
