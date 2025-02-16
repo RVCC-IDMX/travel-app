@@ -103,32 +103,32 @@ async function createQuiz() {
     });
 
     eventHelper('5-jungle', 'click', () => {
-        console.log('Remove cities where jungle is not highest in enviorments.');
+        console.log('Remove cities where jungle is not highest in environments.');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-forest', 'click', () => {
-        console.log('Remove cities where forest is not highest in enviorments.');
+        console.log('Remove cities where forest is not highest in environments.');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-desert', 'click', () => {
-        console.log('Remove cities where desert is not highest in enviorments.');
+        console.log('Remove cities where desert is not highest in environments.');
         questionAdvance(q5, q6);
     });
 
-    eventHelper('5-costal', 'click', () => {
-        console.log('Remove cities where costal is not highest in enviorments.');
+    eventHelper('5-coastal', 'click', () => {
+        console.log('Remove cities where coastal is not highest in environments.');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-mountains', 'click', () => {
-        console.log('Remove cities where mountains is not highest in enviorments.');
+        console.log('Remove cities where mountains is not highest in environments.');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-cityscape', 'click', () => {
-        console.log('Remove cities where cityscape is not highest in enviorments.');
+        console.log('Remove cities where cityscape is not highest in environments.');
         questionAdvance(q5, q6);
     });
 
