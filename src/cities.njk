@@ -7,7 +7,7 @@ permalink: cities.json
         "name":"{{city.data.title}}",
         "description":"{{city.data.description}}",
         "date":"{{city.data.date}}",
-        "size": {{city.data.size}},
+        "size": "{{city.data.size}}", {# Making it a string since commas in population number mess up json file #}
         "location" : {
             "state": "{{city.data.locationState}}",
             "country": "{{city.data.locationCountry}}"
