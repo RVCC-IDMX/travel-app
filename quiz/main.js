@@ -17,9 +17,6 @@ let sizeMin = 0;
 
 let cityData = [];
 
-
-createQuiz();
-
 async function createQuiz() {
     await getCityData();
 
@@ -46,17 +43,27 @@ async function createQuiz() {
 
     eventHelper('2-weekend', 'click', () => {
         console.log('+1 Point for small cities.');
+        cityData.forEach(city => {
+            if (city.size < smallCityThreshold) {
+                city.points++;
+            }
+        });
         questionAdvance(q2, q3);
     });
 
     eventHelper('2-week', 'click', () => {
         console.log('+1 Point for big cities.');
+        cityData.forEach(city => {
+            if (city.size > smallCityThreshold) {
+                city.points++;
+            }
+        });
         questionAdvance(q2, q3);
     });
 
     eventHelper('2-longer', 'click', () => {
         console.log('Remove small cities.');
-        cityData = cityData.filter((city) => city.size >= smallCityThreshold);
+        cityData = cityData.filter((city) => city.size > smallCityThreshold);
         questionAdvance(q2, q3);
     });
 
@@ -295,3 +302,5 @@ function questionAdvance(currentQuestion, nextQuestion) {
 
     console.log(cityData);
 }
+
+document.addEventListener("DOMContentLoaded", createQuiz);
