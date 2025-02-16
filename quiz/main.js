@@ -43,35 +43,38 @@ async function createQuiz() {
 
     eventHelper('2-weekend', 'click', () => {
         console.log('+1 Point for small cities.');
-        awardPoints(2, 'size', '', true)
+        awardPoints(1, 'size', '', true);
         questionAdvance(q2, q3);
     });
 
     eventHelper('2-week', 'click', () => {
         console.log('+1 Point for big cities.');
-        awardPoints(2, 'size', '')
+        awardPoints(1, 'size', '');
         questionAdvance(q2, q3);
     });
 
     eventHelper('2-longer', 'click', () => {
         console.log('Remove small cities.');
         //cityData = cityData.filter((city) => city.size > smallCityThreshold);
-        awardPoints(4, 'size', '')
+        awardPoints(2, 'size', '');
         questionAdvance(q2, q3);
     });
 
     eventHelper('3-warm', 'click', () => {
         console.log('Keep only warm cities.');
+        awardPoints(1, 'hot', 'weather');
         questionAdvance(q3, q4);
     });
 
     eventHelper('3-cold', 'click', () => {
         console.log('Keep only cold cities.');
+        awardPoints(1, 'cold', 'weather');
         questionAdvance(q3, q4);
     });
 
     eventHelper('3-wet', 'click', () => {
         console.log('Keep only wet cities.');
+        awardPoints(1, 'wet', 'weather');
         questionAdvance(q3, q4);
     });
 
@@ -82,11 +85,13 @@ async function createQuiz() {
 
     eventHelper('4-cozy', 'click', () => {
         console.log('+2 Points for small cities.');
+        awardPoints(2, 'size', '', true);
         questionAdvance(q4, q5);
     });
 
     eventHelper('4-bustling', 'click', () => {
         console.log('+2 Points for big cities.');
+        awardPoints(2, 'size', '');
         questionAdvance(q4, q5);
     });
 
@@ -97,31 +102,37 @@ async function createQuiz() {
 
     eventHelper('5-jungle', 'click', () => {
         console.log('Remove cities where jungle is not highest in environments.');
+        awardPoints(1, 'jungle', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-forest', 'click', () => {
         console.log('Remove cities where forest is not highest in environments.');
+        awardPoints(1, 'forests', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-desert', 'click', () => {
         console.log('Remove cities where desert is not highest in environments.');
+        awardPoints(1, 'desert', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-coastal', 'click', () => {
         console.log('Remove cities where coastal is not highest in environments.');
+        awardPoints(1, 'coast', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-mountains', 'click', () => {
         console.log('Remove cities where mountains is not highest in environments.');
+        awardPoints(1, 'mountains', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-cityscape', 'click', () => {
         console.log('Remove cities where cityscape is not highest in environments.');
+        awardPoints(1, 'cityscape', 'environment');
         questionAdvance(q5, q6);
     });
 
@@ -132,16 +143,19 @@ async function createQuiz() {
 
     eventHelper('6-fine', 'click', () => {
         console.log('+1 Point for fine.');
+        awardPoints(1, 'foodFine', 'food');
         questionAdvance(q6, q7);
     });
 
     eventHelper('6-casual', 'click', () => {
         console.log('+1 Point for casual.');
+        awardPoints(1, 'foodCasual', 'food');
         questionAdvance(q6, q7);
     });
 
     eventHelper('7-yes', 'click', () => {
         console.log('Remove cities with a score lower than 2.');
+        awardPoints(1, 'shopping', '');
         questionAdvance(q7, q8);
     });
 
@@ -291,7 +305,9 @@ function awardPoints(points, key, category, reversed) {
         }
         city.points += value * points;
 
-        console.log(`${city.name} was awarded ${value * points} points.`)
+        if (value * points > 0) {
+            console.log(`${city.name} was awarded ${value * points} points.`)
+        }
     });
 }
 
