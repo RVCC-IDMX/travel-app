@@ -2,7 +2,7 @@
 title: Las Vegas
 date: 2025-02-12
 description: Short description of the city's hilights in about a sentence.
-size: 0
+size: 660,929
 locationState: NV
 locationCountry: USA
 hotWeather : 3

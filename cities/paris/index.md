@@ -2,7 +2,7 @@
 title: Paris
 date: 2025-02-12
 description: Paris is a city in France known for the Eiffel Tower and its fashion.
-size: 3
+size: 2,103,000 
 locationState: 
 locationCountry: France
 hotWeather : 1

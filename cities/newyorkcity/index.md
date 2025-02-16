@@ -2,7 +2,7 @@
 title: New York City
 date: 2025-02-12
 description: New York City is the largest most visited city in the U.S. Known for its diversity, opportunities, and tourism.
-size: 3
+size: 8,258,000
 locationState: NY
 locationCountry: USA
 hotWeather : 1

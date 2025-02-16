@@ -2,7 +2,7 @@
 title: City's Name
 date: 0000-00-00
 description: Short description of the city's hilights in about a sentence.
-size: 0
+size: 0,000,000
 locationState: NJ
 locationCountry: USA
 hotWeather : 0
@@ -37,9 +37,12 @@ Images can go in the same folder.
 
 You can put images into the city's folder and link them with markdown.
 
-All of the numerical stuff in the frontmatter use the following numbers:
+
+All of the numerical stuff (except for size) in the frontmatter use the following numbers:
 
 0 = not present
 1 = present
 2 = known for it
 3 = specificially famous for it
+
+For size put in the population number.
