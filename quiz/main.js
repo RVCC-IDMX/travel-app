@@ -22,19 +22,17 @@ async function createQuiz() {
 
     normalizeSize();
 
-    awardPoints('attraction', 'amusementPark')
-
     console.log('Data collection complete.')
 
     eventHelper('1-yes', 'click', () => {
         console.log('Remove US cities.');
-        cityData = cityData.filter((city) => city.location.country != 'USA');
+        //cityData = cityData.filter((city) => city.location.country != 'USA');
         questionAdvance(q1, q2);
     });
 
     eventHelper('1-no', 'click', () => {
         console.log('Remove non US cities.');
-        cityData = cityData.filter((city) => city.location.country == 'USA');
+        //cityData = cityData.filter((city) => city.location.country == 'USA');
         questionAdvance(q1, q2);
     });
 
@@ -45,27 +43,20 @@ async function createQuiz() {
 
     eventHelper('2-weekend', 'click', () => {
         console.log('+1 Point for small cities.');
-        cityData.forEach(city => {
-            if (city.size < smallCityThreshold) {
-                city.points++;
-            }
-        });
+        awardPoints(2, 'size', '', true)
         questionAdvance(q2, q3);
     });
 
     eventHelper('2-week', 'click', () => {
         console.log('+1 Point for big cities.');
-        cityData.forEach(city => {
-            if (city.size > smallCityThreshold) {
-                city.points++;
-            }
-        });
+        awardPoints(2, 'size', '')
         questionAdvance(q2, q3);
     });
 
     eventHelper('2-longer', 'click', () => {
         console.log('Remove small cities.');
-        cityData = cityData.filter((city) => city.size > smallCityThreshold);
+        //cityData = cityData.filter((city) => city.size > smallCityThreshold);
+        awardPoints(4, 'size', '')
         questionAdvance(q2, q3);
     });
 
@@ -292,14 +283,15 @@ function normalizeSize() {
     });
 }
 
-function awardPoints(category, key) {
+function awardPoints(points, key, category, reversed) {
     cityData.forEach(city => {
-        if (!category) {
-            console.log(city[key]);
-        } 
-        else {
-            console.log(city[category][key]);
+        let value = category ? city[category][key] : city[key];
+        if (reversed) {
+            value = 1 - value;
         }
+        city.points += value * points;
+
+        console.log(`${city.name} was awarded ${value * points} points.`)
     });
 }
 
@@ -312,8 +304,6 @@ function questionAdvance(currentQuestion, nextQuestion) {
     else {
         console.log('Quiz Finished');
     }
-
-    console.log(cityData);
 }
 
 document.addEventListener("DOMContentLoaded", createQuiz);
