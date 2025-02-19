@@ -1,6 +1,6 @@
 ---
 title: Bangkok
-date: 2025-2-12
+date: 2025-02-12
 description: Known for its humid weather, thriving city with popular nature scenes, religious sites, food, and nightlife.
 size: 71,638,099
 locationState: Bangkok
