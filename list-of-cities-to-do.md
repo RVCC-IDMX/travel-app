@@ -3,4 +3,8 @@
 - [x] New York City
 - [x] Paris
 - [x] Tokyo
-- [ ] Bangkok
+- [x] Bangkok
+- [ ] Berlin
+- [ ] Sydney
+- [ ] Rio de Janeiro
+- [ ] Cario
