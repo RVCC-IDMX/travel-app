@@ -11,6 +11,10 @@ const q9b = document.getElementById('question-9b');
 const q10 = document.getElementById('question-10');
 
 const smallCityThreshold = 0.25;
+const hotCityThreshold = 2;
+const coldCityThreshold = 2;
+const wetCityThreshold = 2;
+
 
 let sizeMax = 0;
 let sizeMin = 0;
@@ -26,13 +30,13 @@ async function createQuiz() {
 
     eventHelper('1-yes', 'click', () => {
         console.log('Remove US cities.');
-        //cityData = cityData.filter((city) => city.location.country != 'USA');
+        removeCity('country', 'location', 'USA', '!==');
         questionAdvance(q1, q2);
     });
 
     eventHelper('1-no', 'click', () => {
         console.log('Remove non US cities.');
-        //cityData = cityData.filter((city) => city.location.country == 'USA');
+        removeCity('country', 'location', 'USA', '===');
         questionAdvance(q1, q2);
     });
 
@@ -55,25 +59,28 @@ async function createQuiz() {
 
     eventHelper('2-longer', 'click', () => {
         console.log('Remove small cities.');
-        //cityData = cityData.filter((city) => city.size > smallCityThreshold);
+        removeCity('size', '', smallCityThreshold, '>');
         awardPoints(2, 'size', '');
         questionAdvance(q2, q3);
     });
 
     eventHelper('3-warm', 'click', () => {
         console.log('Keep only warm cities.');
+        removeCity('hot', 'weather', hotCityThreshold, '>=');
         awardPoints(1, 'hot', 'weather');
         questionAdvance(q3, q4);
     });
 
     eventHelper('3-cold', 'click', () => {
         console.log('Keep only cold cities.');
+        removeCity('cold', 'weather', coldCityThreshold, '>=');
         awardPoints(1, 'cold', 'weather');
         questionAdvance(q3, q4);
     });
 
     eventHelper('3-wet', 'click', () => {
         console.log('Keep only wet cities.');
+        removeCity('wet', 'weather', wetCityThreshold, '>=');
         awardPoints(1, 'wet', 'weather');
         questionAdvance(q3, q4);
     });
@@ -210,6 +217,12 @@ async function createQuiz() {
         questionAdvance(q9a, q10);
     });
 
+    eventHelper('9a-theatre', 'click', () => {
+        // console.log('Remove cities where Stadium is not the highest rated.');
+        awardPoints(1, 'theatre', 'attraction');
+        questionAdvance(q9a, q10);
+    });
+
     eventHelper('9b-natural-wonder', 'click', () => {
         // console.log('Remove cities where Natural Wonder is not the highest rated.');
         awardPoints(1, 'naturalWonder', 'attraction');
@@ -246,6 +259,12 @@ async function createQuiz() {
         questionAdvance(q9b);
     });
 
+    eventHelper('9b-theatre', 'click', () => {
+        // console.log('Remove cities where Stadium is not the highest rated.');
+        awardPoints(1, 'theatre', 'attraction');
+        questionAdvance(q9b);
+    });
+
     eventHelper('10-not-important', 'click', () => {
         console.log('Do nothing.');
         questionAdvance(q10);
@@ -262,12 +281,12 @@ async function createQuiz() {
         awardPoints(2, 'nightLife', '');
         questionAdvance(q10);
     });
-}
+};
 
 function eventHelper(sel, event, func) {
     let answer = document.getElementById(sel);
     answer.addEventListener(event, func);
-}
+};
 
 // Grab city data from json and move into array
 async function getCityData() {
@@ -283,14 +302,14 @@ async function getCityData() {
     } catch (error) {
         console.error(error.message);
     }
-}
+};
 
 function normalizeSize() {
     // Find largest city size
     cityData.forEach(city => {
         let citySizeInt = parseInt(city.size.replace(/,/g, '')); // Remove commas from data
 
-        if (citySizeInt > sizeMax || sizeMax == 0) {
+        if (citySizeInt > sizeMax || sizeMax === 0) {
             sizeMax = citySizeInt;
         }
     });
@@ -299,7 +318,7 @@ function normalizeSize() {
     cityData.forEach(city => {
         let citySizeInt = parseInt(city.size.replace(/,/g, '')); // Remove commas from data
 
-        if (citySizeInt < sizeMin || sizeMin == 0) {
+        if (citySizeInt < sizeMin || sizeMin === 0) {
             sizeMin = citySizeInt;
         }
     });
@@ -307,10 +326,11 @@ function normalizeSize() {
     // Normalize city size
     cityData.forEach(city => {
         let citySizeInt = parseInt(city.size.replace(/,/g, '')); // Remove commas from data
-
-        city.size = ((citySizeInt - sizeMin) / (sizeMax - sizeMin));
+        console.log(city.size)
+        city.size = ((citySizeInt - sizeMin) / (sizeMax - sizeMin)).toFixed(3);
+        console.log(city.size)
     });
-}
+};
 
 function awardPoints(points, key, category, reversed) {
     cityData.forEach(city => {
@@ -324,7 +344,81 @@ function awardPoints(points, key, category, reversed) {
             console.log(`${city.name} was awarded ${value * points} points.`)
         }
     });
-}
+};
+
+/**
+ * This function will remove cities if the value comparison returns false
+ * @param {string} key The key in the cities.json to target
+ * @param {string} [category] The category to target if the key is in a category
+ * @param {string} valueMatch Every city that does not match this value is removed
+ * @param {string} comparisonOperator The function will use this to compare the values.
+ */
+function removeCity(key, category, valueMatch, comparisonOperator) {
+    cityData.forEach(city => {
+        let value = category ? city[category][key] : city[key];
+        let comparisonResult;
+
+        if (typeof value === 'string') {
+            if (comparisonOperator === '==' || comparisonOperator === '!=' || comparisonOperator === '===' || comparisonOperator === '!==') {
+
+            }
+            else {
+                console.error(`Unsupported comparison operator for comparing strings: ${comparisonOperator}`);
+                return;
+            }
+        } 
+
+        switch (comparisonOperator) {
+            case '>':
+                comparisonResult = value > valueMatch;
+                if (!comparisonResult) {
+                    console.log(`${city.name} is not greater than ${valueMatch} in ${key}. Removing ${city.name}.`);
+                    city.removed = true;
+                }
+                break;
+            case '>=':
+                comparisonResult = value >= valueMatch;
+                if (!comparisonResult) {
+                    console.log(`${city.name} is not greater than or equal to ${valueMatch} in ${key}. Removing ${city.name}.`);
+                    city.removed = true;
+                }
+                break;
+            case '<':
+                comparisonResult = value < valueMatch;
+                if (!comparisonResult) {
+                    console.log(`${city.name} is greater than ${valueMatch} in ${key}. Removing ${city.name}.`);
+                    city.removed = true;
+                }
+                break;
+            case '<=':
+                comparisonResult = value <= valueMatch;
+                if (!comparisonResult) {
+                    console.log(`${city.name} is greater than or equal to ${valueMatch} in ${key}. Removing ${city.name}.`);
+                    city.removed = true;
+                }
+                break;
+            case '==':
+            case '===':
+                comparisonResult = value == valueMatch;
+                if (!comparisonResult) {
+                    console.log(`${city.name} is not equal to ${valueMatch} in ${key}. Removing ${city.name}.`);
+                    city.removed = true;
+                }
+                break;
+            case '!=':
+            case '!==':
+                comparisonResult = value != valueMatch;
+                if (!comparisonResult) {
+                    console.log(`${city.name} is equal to ${valueMatch} in ${key}. Removing ${city.name}.`);
+                    city.removed = true;
+                }
+                break;
+            default:
+                console.error(`Unsupported comparison operator: ${comparisonOperator}`);
+                return;
+        };
+    });
+};
 
 function questionAdvance(currentQuestion, nextQuestion) {
     currentQuestion.style.display = 'none';
@@ -339,7 +433,7 @@ function questionAdvance(currentQuestion, nextQuestion) {
             console.log(`${city.name} got ${city.points} points.`)
         });
     }
-}
+};
 
 // Dont refrence DOM elements before it has loaded
 document.addEventListener("DOMContentLoaded", createQuiz);

@@ -19,6 +19,7 @@ amusementPark: 2
 zoo: 3
 aquarium: 3
 museum: 3
+theater: 3
 monument: 3
 historicSite: 3
 stadium: 2

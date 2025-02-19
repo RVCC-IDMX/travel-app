@@ -2,7 +2,7 @@
 title: Cairo
 date: 2025-02-19
 description: Largest city in Egypt known for its pyramids.
-size: 23,074,000
+size: 10,100,000
 locationState: Cairo
 locationCountry: Egypt
 hotWeather : 3
