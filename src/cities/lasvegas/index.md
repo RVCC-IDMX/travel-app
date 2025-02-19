@@ -20,6 +20,7 @@ zoo: 2
 aquarium: 2
 museum: 2
 monument: 3
+theater: 2
 historicSite: 2
 stadium: 1
 religious: 0
