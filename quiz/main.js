@@ -269,6 +269,7 @@ function eventHelper(sel, event, func) {
     answer.addEventListener(event, func);
 }
 
+// Grab city data from json and move into array
 async function getCityData() {
     const url = "/_site/cities.json";
     try {
@@ -287,7 +288,7 @@ async function getCityData() {
 function normalizeSize() {
     // Find largest city size
     cityData.forEach(city => {
-        let citySizeInt = parseInt(city.size.replace(/,/g, ''));
+        let citySizeInt = parseInt(city.size.replace(/,/g, '')); // Remove commas from data
 
         if (citySizeInt > sizeMax || sizeMax == 0) {
             sizeMax = citySizeInt;
@@ -296,7 +297,7 @@ function normalizeSize() {
 
     // Find smallest city size
     cityData.forEach(city => {
-        let citySizeInt = parseInt(city.size.replace(/,/g, ''));
+        let citySizeInt = parseInt(city.size.replace(/,/g, '')); // Remove commas from data
 
         if (citySizeInt < sizeMin || sizeMin == 0) {
             sizeMin = citySizeInt;
@@ -305,7 +306,7 @@ function normalizeSize() {
 
     // Normalize city size
     cityData.forEach(city => {
-        let citySizeInt = parseInt(city.size.replace(/,/g, ''));
+        let citySizeInt = parseInt(city.size.replace(/,/g, '')); // Remove commas from data
 
         city.size = ((citySizeInt - sizeMin) / (sizeMax - sizeMin));
     });
@@ -340,4 +341,5 @@ function questionAdvance(currentQuestion, nextQuestion) {
     }
 }
 
+// Dont refrence DOM elements before it has loaded
 document.addEventListener("DOMContentLoaded", createQuiz);
