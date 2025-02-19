@@ -326,8 +326,9 @@ function normalizeSize() {
     // Normalize city size
     cityData.forEach(city => {
         let citySizeInt = parseInt(city.size.replace(/,/g, '')); // Remove commas from data
-
-        city.size = ((citySizeInt - sizeMin) / (sizeMax - sizeMin));
+        console.log(city.size)
+        city.size = ((citySizeInt - sizeMin) / (sizeMax - sizeMin)).toFixed(3);
+        console.log(city.size)
     });
 };
 
