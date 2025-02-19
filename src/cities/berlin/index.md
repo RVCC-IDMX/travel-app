@@ -1,35 +1,35 @@
 ---
-title: City's Name
-date: 0000-00-00
+title: Berlin
+date: 2025-02-19
 description: Short description of the city's highlights in about a sentence.
-size: 0,000,000
-locationState: NJ
-locationCountry: USA
-hotWeather : 0
-coldWeather: 0
-wetWeather: 0
-mountains: 0
-forests: 0
+size: 3,660,000
+locationState: Berlin
+locationCountry: Germany
+hotWeather : 1
+coldWeather: 2
+wetWeather: 1
+mountains: 1
+forests: 2
 coast: 0
 desert: 0
-cityscape: 0
+cityscape: 3
 jungle: 0
 naturalWonder: 0
 amusementPark: 0
-zoo: 0
-aquarium: 0
-museum: 0
-monument: 0
-theater: 0
-historicSite: 0
-stadium: 0
-religious: 0
-nature: 0
-nightLife: 0
-publicTransit: 0
-foodFine: 0
-foodCasual: 0
-shopping: 0
+zoo: 2
+aquarium: 1
+museum: 3
+monument: 3
+theater: 1
+historicSite: 3
+stadium: 2
+religious: 2
+nature: 1
+nightLife: 3
+publicTransit: 2
+foodFine: 2
+foodCasual: 2
+shopping: 2
 ---
 
 Put article content here formatted in Markdown.
