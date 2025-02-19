@@ -4,3 +4,11 @@
 - [x] Paris
 - [x] Tokyo
 - [ ] Bangkok
+- [ ] New Brunswick, NJ
+- [ ] Patterson, NJ
+- [ ] Herkimer, NY
+- [ ] Hershey, PA
+- [ ] Corning, NY
+- [ ] Mystic, CT
+- [ ] Atlantic City, NJ
+- [ ] Niagara, NY
