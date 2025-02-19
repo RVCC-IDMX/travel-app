@@ -4,6 +4,9 @@
 - [x] Paris
 - [x] Tokyo
 - [ ] Bangkok
+
+
+# Prof Caruso
 - [ ] New Brunswick, NJ
 - [ ] Patterson, NJ
 - [ ] Herkimer, NY
