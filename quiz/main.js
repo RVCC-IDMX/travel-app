@@ -16,6 +16,8 @@ const smallCityThreshold = 0.25;
 const weatherThreshold = 2;
 const environmentThreshold = 2;
 const attractionThreshold = 2;
+const shoppingThreshold = 2;
+const nightlifeThreshold = 3;
 
 
 let sizeMax = 0;
@@ -28,7 +30,7 @@ async function createQuiz() {
 
     normalizeSize();
 
-    createCityElement();
+    printCityElements();
 
     console.log('Data collection complete.')
 
@@ -172,6 +174,7 @@ async function createQuiz() {
 
     eventHelper('7-yes', 'click', () => {
         console.log('Remove cities with a score lower than 2.');
+        removeCity('shopping', '', shoppingThreshold, '>=');
         awardPoints(1, 'shopping', '');
         questionAdvance(q7, q8);
     });
@@ -193,84 +196,98 @@ async function createQuiz() {
 
     eventHelper('9a-natural-wonder', 'click', () => {
         // console.log('Remove cities where Natural Wonder is not the highest rated.');
+        removeCity('naturalWonder', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'naturalWonder', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-monument', 'click', () => {
         // console.log('Remove cities where Monument is not the highest rated.');
+        removeCity('monument', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'monument', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-historic-site', 'click', () => {
         // console.log('Remove cities where Historic Site is not the highest rated.');
+        removeCity('historicSite', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'historicSite', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-religious-site', 'click', () => {
         // console.log('Remove cities where Religious Site is not the highest rated.');
+        removeCity('religious', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'religious', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-museum', 'click', () => {
         // console.log('Remove cities where Museum is not the highest rated.');
+        removeCity('museum', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'museum', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-stadium', 'click', () => {
         // console.log('Remove cities where Stadium is not the highest rated.');
+        removeCity('stadium', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'stadium', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-theatre', 'click', () => {
         // console.log('Remove cities where Stadium is not the highest rated.');
+        removeCity('theatre', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'theatre', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9b-natural-wonder', 'click', () => {
         // console.log('Remove cities where Natural Wonder is not the highest rated.');
+        removeCity('naturalWonder', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'naturalWonder', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-aquarium', 'click', () => {
         // console.log('Remove cities where Aquarium is not the highest rated.');
+        removeCity('aquarium', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'aquarium', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-amusement-park', 'click', () => {
         // console.log('Remove cities where Amusement Park is not the highest rated.');
+        removeCity('amusementPark', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'amusementPark', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-zoo', 'click', () => {
         // console.log('Remove cities where Zoo is not the highest rated.');
+        removeCity('zoo', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'zoo', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-museum', 'click', () => {
         // console.log('Remove cities where Museum is not the highest rated.');
+        removeCity('museum', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'museum', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-stadium', 'click', () => {
         // console.log('Remove cities where Stadium is not the highest rated.');
+        removeCity('stadium', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'stadium', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-theatre', 'click', () => {
         // console.log('Remove cities where Stadium is not the highest rated.');
+        removeCity('theatre', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'theatre', 'attraction');
         questionAdvance(q9b);
     });
@@ -283,11 +300,13 @@ async function createQuiz() {
     eventHelper('10-somewhat-important', 'click', () => {
         console.log('Remove cities with under 1 in nightlife.');
         awardPoints(1, 'nightLife', '');
+        removeCity('nightlife', '', (attractionThreshold - 1), '>=');
         questionAdvance(q10);
     });
 
     eventHelper('10-very-important', 'click', () => {
         console.log('Remove cities with under 2 in nightlife.');
+        removeCity('nightlife', '', (attractionThreshold - 1), '>=');
         awardPoints(2, 'nightLife', '');
         questionAdvance(q10);
     });
@@ -337,7 +356,7 @@ function normalizeSize() {
     cityData.forEach(city => {
         let citySizeInt = parseInt(city.size.replace(/,/g, '')); // Remove commas from data
         console.log(`${city.name} population ${city.size}`)
-        city.size = ((citySizeInt - sizeMin) / (sizeMax - sizeMin)).toFixed(3);
+        city.size = parseFloat(((citySizeInt - sizeMin) / (sizeMax - sizeMin)).toFixed(3));
         console.log(`${city.name} population normalized: ${city.size}`)
     });
 };
@@ -444,10 +463,10 @@ function questionAdvance(currentQuestion, nextQuestion) {
         });
     }
 
-    createCityElement();
+    printCityElements();
 };
 
-function createCityElement() {
+function printCityElements() {
     let cityElements = document.getElementsByClassName('city');
 
     for (var i = cityElements.length - 1; i >= 0; --i) {
