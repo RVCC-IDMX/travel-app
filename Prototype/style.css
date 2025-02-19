@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.NavBar {
+    display: flex;
+    padding: 2em;
+    justify-content: space-between;
+    box-shadow: 0px 1px #b1b1b1;
+}
+
+.Menu {
+    position: relative;
+    display: inline-block;
+}
+
+.DropDown {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+.DropDown a {
+    display: block;
+}
+.Menu:hover .DropDown {
+    display: block;
+}
+
