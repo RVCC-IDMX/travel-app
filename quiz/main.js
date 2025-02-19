@@ -10,10 +10,12 @@ const q9a = document.getElementById('question-9a');
 const q9b = document.getElementById('question-9b');
 const q10 = document.getElementById('question-10');
 
+const cityContainer = document.getElementById('city-container');
+
 const smallCityThreshold = 0.25;
-const hotCityThreshold = 2;
-const coldCityThreshold = 2;
-const wetCityThreshold = 2;
+const weatherThreshold = 2;
+const environmentThreshold = 2;
+const attractionThreshold = 2;
 
 
 let sizeMax = 0;
@@ -25,6 +27,8 @@ async function createQuiz() {
     await getCityData();
 
     normalizeSize();
+
+    createCityElement();
 
     console.log('Data collection complete.')
 
@@ -66,21 +70,21 @@ async function createQuiz() {
 
     eventHelper('3-warm', 'click', () => {
         console.log('Keep only warm cities.');
-        removeCity('hot', 'weather', hotCityThreshold, '>=');
+        removeCity('hot', 'weather', weatherThreshold, '>=');
         awardPoints(1, 'hot', 'weather');
         questionAdvance(q3, q4);
     });
 
     eventHelper('3-cold', 'click', () => {
         console.log('Keep only cold cities.');
-        removeCity('cold', 'weather', coldCityThreshold, '>=');
+        removeCity('cold', 'weather', weatherThreshold, '>=');
         awardPoints(1, 'cold', 'weather');
         questionAdvance(q3, q4);
     });
 
     eventHelper('3-wet', 'click', () => {
         console.log('Keep only wet cities.');
-        removeCity('wet', 'weather', wetCityThreshold, '>=');
+        removeCity('wet', 'weather', weatherThreshold, '>=');
         awardPoints(1, 'wet', 'weather');
         questionAdvance(q3, q4);
     });
@@ -109,36 +113,42 @@ async function createQuiz() {
 
     eventHelper('5-jungle', 'click', () => {
         console.log('Remove cities where jungle is not highest in environments.');
+        removeCity('jungle', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'jungle', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-forest', 'click', () => {
         console.log('Remove cities where forest is not highest in environments.');
+        removeCity('forests', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'forests', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-desert', 'click', () => {
         console.log('Remove cities where desert is not highest in environments.');
+        removeCity('desert', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'desert', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-coastal', 'click', () => {
         console.log('Remove cities where coastal is not highest in environments.');
+        removeCity('coast', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'coast', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-mountains', 'click', () => {
         console.log('Remove cities where mountains is not highest in environments.');
+        removeCity('mountains', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'mountains', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-cityscape', 'click', () => {
         console.log('Remove cities where cityscape is not highest in environments.');
+        removeCity('cityscape', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'cityscape', 'environment');
         questionAdvance(q5, q6);
     });
@@ -326,9 +336,9 @@ function normalizeSize() {
     // Normalize city size
     cityData.forEach(city => {
         let citySizeInt = parseInt(city.size.replace(/,/g, '')); // Remove commas from data
-        console.log(city.size)
+        console.log(`${city.name} population ${city.size}`)
         city.size = ((citySizeInt - sizeMin) / (sizeMax - sizeMin)).toFixed(3);
-        console.log(city.size)
+        console.log(`${city.name} population normalized: ${city.size}`)
     });
 };
 
@@ -366,7 +376,7 @@ function removeCity(key, category, valueMatch, comparisonOperator) {
                 console.error(`Unsupported comparison operator for comparing strings: ${comparisonOperator}`);
                 return;
             }
-        } 
+        }
 
         switch (comparisonOperator) {
             case '>':
@@ -433,6 +443,27 @@ function questionAdvance(currentQuestion, nextQuestion) {
             console.log(`${city.name} got ${city.points} points.`)
         });
     }
+
+    createCityElement();
+};
+
+function createCityElement() {
+    let cityElements = document.getElementsByClassName('city');
+
+    for (var i = cityElements.length - 1; i >= 0; --i) {
+        cityElements[i].remove();
+    }
+
+    cityData.forEach(city => {
+        if (!city.removed) {
+            let cityElement = document.createElement('p');
+
+            cityElement.innerHTML = city.name;
+            cityElement.className = 'city';
+
+            cityContainer.appendChild(cityElement);
+        };
+    });
 };
 
 // Dont refrence DOM elements before it has loaded
