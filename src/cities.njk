@@ -31,6 +31,7 @@ permalink: cities.json
             "aquarium": {{city.data.aquarium}},
             "museum": {{city.data.museum}},
             "monument": {{city.data.monument}},
+            "theater": {{city.data.theater}},
             "historicSite": {{city.data.historicSite}},
             "stadium": {{city.data.stadium}},
             "religious": {{city.data.religious}},
@@ -43,7 +44,8 @@ permalink: cities.json
             "foodCasual": {{city.data.foodCasual}}
         },
         "shopping": {{city.data.shopping}},
-        "points": 0
+        "points": 0,
+        "removed": false
     }{% if not loop.last %},{% endif %}
 {%- endfor %}
 ]
