@@ -1,7 +1,7 @@
 ---
 title: Las Vegas
 date: 2025-02-12
-description: Short description of the city's hilights in about a sentence.
+description: Las Vegas is famous for gambling casinos and a vibrant nightlife. A must see city in the United States.
 size: 660,929
 locationState: NV
 locationCountry: USA
@@ -48,5 +48,5 @@ All of the numerical stuff in the frontmatter use the following numbers:
 
 Las Vegas is known for their casinos and entertainment. If you love to watch shows and gamble this is a place to visit. So many large luxurious casino-hotels. The Las Vegas strip has a bunch of outdoor attractions, shows, and rides. Travelers who want to get active, walk around, and participate in activities; this is a great travel destination. You can get around Vegas by walking, ride sharing apps, taxi or public transportation. 
 
-https://www.pixelstalk.net/las-vegas-hd-wallpapers/
+Image link: https://www.pixelstalk.net/las-vegas-hd-wallpapers/
 
