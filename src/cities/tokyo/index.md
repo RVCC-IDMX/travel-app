@@ -2,7 +2,7 @@
 title: Tokyo
 date: 2025-02-12
 description: Popular city known for its nightlife, respectful customs, and its culture.
-size: 14,180,000
+size: 14,190,000
 locationState: Kantō
 locationCountry: Japan
 hotWeather : 1
