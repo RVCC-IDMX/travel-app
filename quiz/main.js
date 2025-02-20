@@ -12,14 +12,14 @@ const q10 = document.getElementById('question-10');
 
 const cityContainer = document.getElementById('city-container');
 
-const smallCityThreshold = 0.25;
+const smallPopulationNumber = 50000;
 const weatherThreshold = 2;
 const environmentThreshold = 2;
 const attractionThreshold = 2;
 const shoppingThreshold = 2;
 const nightlifeThreshold = 3;
 
-
+let smallCityThreshold = 0;
 let sizeMax = 0;
 let sizeMin = 0;
 
@@ -359,6 +359,8 @@ function normalizeSize() {
         city.size = parseFloat(((citySizeInt - sizeMin) / (sizeMax - sizeMin)).toFixed(3));
         console.log(`${city.name} population normalized: ${city.size}`)
     });
+
+    smallCityThreshold = parseFloat((smallPopulationNumber - sizeMin) / (sizeMax - sizeMin));
 };
 
 function awardPoints(points, key, category, reversed) {
