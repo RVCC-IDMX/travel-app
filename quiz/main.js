@@ -11,6 +11,7 @@ const q9b = document.getElementById('question-9b');
 const q10 = document.getElementById('question-10');
 
 const cityContainer = document.getElementById('city-container');
+const questions = document.getElementById('questions');
 
 const smallPopulationNumber = 50000;
 const weatherThreshold = 2;
@@ -458,11 +459,7 @@ function questionAdvance(currentQuestion, nextQuestion) {
         nextQuestion.style.display = 'block';
     }
     else {
-        console.log('Quiz Finished');
-
-        cityData.forEach(city => {
-            console.log(`${city.name} got ${city.points} points.`)
-        });
+        endQuiz();
     }
 
     printCityElements();
@@ -475,17 +472,29 @@ function printCityElements() {
         cityElements[i].remove();
     }
 
-    cityData.forEach(city => {
-        if (!city.removed) {
-            let cityElement = document.createElement('p');
+    let sortedCities = cityData
+        .sort((a, b) => b.points - a.points);
 
-            cityElement.innerHTML = city.name;
-            cityElement.className = 'city';
+    sortedCities.forEach(city => {
+        let cityElement = document.createElement('p');
 
-            cityContainer.appendChild(cityElement);
-        };
+        cityElement.innerHTML = `${city.name} | ${city.points.toFixed(2)} | ${city.removed}`;
+        cityElement.className = 'city';
+        cityElement.style.textAlign = 'center';
+
+        cityContainer.appendChild(cityElement);
     });
 };
+
+function endQuiz() {
+    console.log('Quiz Finished');
+
+    questions.remove();
+
+    cityData.forEach(city => {
+        console.log(`${city.name} got ${city.points} points.`)
+    });
+}
 
 // Dont refrence DOM elements before it has loaded
 document.addEventListener("DOMContentLoaded", createQuiz);
