@@ -36,9 +36,7 @@ Berlin is the largest captial and city of Germany. It has a usually cooler clima
 
 ![Cityscape of Berlin](BerlinGermany.jpeg "Berlin, Germany")
 
-For size put in the population number.
-
-
 Berlin is the capital of Germany. It is known for its history, art, and culture. The Holocaust Memorial and Berlin Wall is a must see if you are someone who likes visiting historical monuments and seeing modern architecture. Berlin also has art treasures from around the world. It is a city of trends. A popular destination when visiting Europe. The best way to get around Berlin is by taxi, ride sharing apps, and public transportation.
 
-Image link: https://www.getsready.com/wp-content/uploads/2016/10/most-famous-bridge-at-berlin.jpg
+Credit: https://stock.adobe.com/search?k=Berlin+Germany&search_type=usertyped&asset_id=273681270
+Adobe Education License
