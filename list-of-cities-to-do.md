@@ -10,7 +10,7 @@
 - [ ] Cario
 - [x] London (NA)
 - [x] Madrid (NA)
-- [ ] Barcelona (NA)
+- [x] Barcelona (NA)
 - [ ] Rome (NA)
 
 
@@ -23,3 +23,10 @@
 - [ ] Mystic, CT -
 - [ ] Atlantic City, NJ
 - [ ] Niagara, NY
+
+# Carlos
+
+- [x] Helsinki, Finland
+- [ ] Moscow, Russia
+- [ ] Tallinn, Estonia
+- [ ] Oslo, Norway

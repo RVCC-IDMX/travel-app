@@ -22,3 +22,8 @@ section {
     gap: 20px;
     margin: 10px auto;
 }
+
+.answer-container {
+    width: fit-content;
+    margin: 0 auto;
+}
