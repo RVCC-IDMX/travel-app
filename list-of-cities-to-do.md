@@ -26,7 +26,7 @@
 
 # Carlos
 
-- [ ] Helsinki, Finland
+- [x] Helsinki, Finland
 - [ ] Moscow, Russia
 - [ ] Tallinn, Estonia
 - [ ] Oslo, Norway
