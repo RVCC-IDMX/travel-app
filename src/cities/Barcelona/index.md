@@ -8,7 +8,7 @@ locationCountry: Spain
 hotWeather : 3
 coldWeather: 0
 wetWeather: 3
-mountains: 1
+mountains: 2
 forests: 2
 coast: 3
 desert: 2

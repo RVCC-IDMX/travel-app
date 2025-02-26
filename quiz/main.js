@@ -564,7 +564,7 @@ function visualizeData() {
 
         if (city.attraction.naturalWonder >= nightlifeThreshold - 1 && city.attraction.naturalWonder < nightlifeThreshold) goodNightlifeCityCount++;
         if (city.attraction.naturalWonder >= nightlifeThreshold) greatNightlifeCityCount++;
-        
+
         if (city.shopping >= shoppingThreshold) shoppingCityCount++;
     });
 
