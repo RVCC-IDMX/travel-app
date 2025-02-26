@@ -5,9 +5,9 @@
 - [x] Tokyo
 - [x] Bangkok
 - [x] Berlin
-- [ ] Sydney
-- [ ] Rio de Janeiro
-- [ ] Cario
+- [x] Sydney
+- [x] Rio de Janeiro
+- [x] Cario
 - [ ] London (NA)
 - [ ] Madrid (NA)
 - [ ] Barcelona (NA)
@@ -23,3 +23,10 @@
 - [ ] Mystic, CT -
 - [ ] Atlantic City, NJ
 - [ ] Niagara, NY
+
+# Carlos
+
+- [ ] Helsinki, Finland
+- [ ] Moscow, Russia
+- [ ] Tallinn, Estonia
+- [ ] Oslo, Norway
