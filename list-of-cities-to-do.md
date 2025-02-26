@@ -5,13 +5,17 @@
 - [x] Tokyo
 - [x] Bangkok
 - [x] Berlin
-- [ ] Sydney
-- [ ] Rio de Janeiro
-- [ ] Cario
-- [ ] London (NA)
-- [ ] Madrid (NA)
-- [ ] Barcelona (NA)
-- [ ] Rome (NA)
+- [x] Sydney
+- [x] Rio de Janeiro
+- [x] Cario
+- [x] London (NA)
+- [x] Madrid (NA)
+- [x] Barcelona (NA)
+- [x] Rome (NA)
+- [ ] Aspen, Colorado (Cold Mountain)
+- [ ] Taos, New Mexico (Cold Desert)
+- [ ] Iquitos, Peru (Jungle)
+- [ ] Manaus, Brazil (Jungle)
 
 
 # Prof Caruso
