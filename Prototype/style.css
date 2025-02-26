@@ -9,11 +9,13 @@
     padding: 2em;
     justify-content: space-between;
     box-shadow: 0px 1px #b1b1b1;
+    
 }
 
 .Menu {
     position: relative;
     display: inline-block;
+    
 }
 
 .DropDown {
@@ -26,12 +28,112 @@
 
 .DropDown a {
     display: block;
+    text-decoration: underline;
     padding-top: 10px;
+    float: left;
+    text-align: center;
+    font-size: 20px;
+}
+
+.DropDown a:hover {
+    color: black;
+}
+
+.DropDown .icon {
+    display: flex;
 }
 
 .Menu:hover .DropDown {
     display: block;
 }
+
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 100px;
+    width: 150px;
+    background-color: #f1f1f1;
+    height: 20%;
+    position: fixed;
+    overflow: auto;
+    text-decoration: none;
+    border: 1px solid #555;
+}
+
+li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+li a {
+    display: block;
+    padding: 8px 6px;
+    text-decoration: none;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.europe.btn {
+    font-size: 17px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    margin: 0;
+    z-index: 9999;
+}
+
+.dropdown-europe {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    
+}
+
+.dropdown-europe a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-europe:hover, .europe.btn {
+    background-color: #555;
+    color: white;
+}
+
+.dropdown-europe a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.europebtn:hover ~ .dropdown-europe  {
+    display: block;
+    border-top: 26px #555;
+}
+
+
+
+
+
+
+
+
 
 /* ------------------------------------------------------------ City Cards */
 
@@ -39,6 +141,7 @@
     max-width: 960px;
     margin: auto;
     padding-top: 10em;
+    flex-direction: column;
 }
 
 .CardHeader {
@@ -70,6 +173,17 @@
     box-shadow: 0 16px 16px 0 rgba(0,0,0,0.2);
 }
 
+.QuizTemplate {
+    display: flex;
+    margin-top: 100px;
+    margin-left: 240px;
+    justify-content: space-evenly;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    max-width: 30em;
+}
+
 @media screen and (max-width: 700px) {
     .CardContainer {
         display: flex;
@@ -88,4 +202,15 @@
     .ExploreMore {
         display: none;
     }
+
+    .QuizTemplate {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        max-width: 75%;
+        gap: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
+

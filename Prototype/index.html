@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="Page" href="europe.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Travel App</title>
 </head>
@@ -13,14 +15,39 @@
     <header>
         <div class = "NavBar">
 
-            <div class="Menu">
-                <div class = "Destinations">Destinations</div>
+            <div class="Menu" id="myMenu">
+
+                <a href="javascript:void(0);"
+                class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                        </a>
+
+                <div class = "Destinations"></div>
 
                 <div class = "DropDown">
-                    <a href = "#">North America</a>
-                    <a href = "#">Central America</a>
-                    <a href = "#">South America</a>
+
+                    <ul>
+                    <button class="europebtn">Europe
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-europe">
+                        <a href="#">City 1</a>
+                        <a href="#">City 2</a>
+                        <a href="#">City 3</a>
+                    </div>
+
+
+                    <li><a href = "europe.html">Europe</a></li>
+                    <li><a href = "#">North America</a></li>
+                    <li><a href = "#">Central America</a></li>
+                    <li><a href = "#">South America</a></li>
+                    </ul>
+                
+                    
+                    
                 </div>
+
+                
             </div>
 
             <div class = "Title">Travel App</div>
@@ -64,10 +91,19 @@
 
         </div>
 
+            <div class = "QuizTemplate">
+                <div class = "CardData">
+                <h4><b>Quiz Section</b></h4>
+                <p></p>
+            </div>
+
+
+            </div>
+
     </div>
 
     <script src="main.js"></script>
 
 </body>
 
-</html>
+</html> 
