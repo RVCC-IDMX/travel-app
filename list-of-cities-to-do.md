@@ -11,7 +11,7 @@
 - [x] London (NA)
 - [x] Madrid (NA)
 - [x] Barcelona (NA)
-- [ ] Rome (NA)
+- [x] Rome (NA)
 - [ ] Aspen, Colorado (Cold Mountain)
 - [ ] Taos, New Mexico (Cold Desert)
 - [ ] Iquitos, Peru (Jungle)
