@@ -10,7 +10,7 @@
 - [ ] Cario
 - [x] London (NA)
 - [x] Madrid (NA)
-- [ ] Barcelona (NA)
+- [x] Barcelona (NA)
 - [ ] Rome (NA)
 
 
