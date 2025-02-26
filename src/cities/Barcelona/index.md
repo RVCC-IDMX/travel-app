@@ -1,35 +1,35 @@
 ---
-title: City's Name
-date: 0000-00-00
-description: Short description of the city's highlights in about a sentence.
-size: 0,000,000
-locationState: NJ
-locationCountry: USA
-hotWeather : 0
+title: Barcelona
+date: 2026-02-26
+description: Barcelona is the capital and largest city of the community of Catalonia.
+size: 5,733,000
+locationState: Catalonia
+locationCountry: Spain
+hotWeather : 3
 coldWeather: 0
-wetWeather: 0
-mountains: 0
-forests: 0
-coast: 0
-desert: 0
-cityscape: 0
+wetWeather: 3
+mountains: 1
+forests: 2
+coast: 3
+desert: 2
+cityscape: 3
 jungle: 0
-naturalWonder: 0
-amusementPark: 0
-zoo: 0
-aquarium: 0
-museum: 0
-monument: 0
-theater: 0
-historicSite: 0
-stadium: 0
-religious: 0
-nature: 0
-nightLife: 0
-publicTransit: 0
-foodFine: 0
-foodCasual: 0
-shopping: 0
+naturalWonder: 2
+amusementPark: 1
+zoo: 1
+aquarium: 2
+museum: 2
+monument: 3
+theater: 1
+historicSite: 3
+stadium: 1
+religious: 2
+nature: 2
+nightLife: 3
+publicTransit: 3
+foodFine: 3
+foodCasual: 3
+shopping: 3
 ---
 
 Put article content here formatted in Markdown.
@@ -48,7 +48,7 @@ All of the numerical stuff (except for size) in the frontmatter use the followin
 
 For size put in the population number.
 
-
+Barcelona has many known cathedrals. Toursits may go inside and can see how detailed the architecture was built. The magnificent Gothic Cathedral dates back to the thirteenth century. One of the oldest and most historic buildings in Barcelona. Barcelona has many festivals, street parties, beaches, and football games. They have the most well known and successful football teams in the world.
 
 
 Image Link: https://wallpapercave.com/wp/wp1825728.jpg
