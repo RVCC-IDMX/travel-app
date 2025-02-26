@@ -364,6 +364,13 @@ function normalizeSize() {
     smallCityThreshold = parseFloat((smallPopulationNumber - sizeMin) / (sizeMax - sizeMin));
 };
 
+/**
+ * This function will award points to a certain key for each city 
+ * @param {number} points The number of points to award
+ * @param {string} key The key in the cities.json to target
+ * @param {string} category The category to target if the key is in a category
+ * @param {boolean} reversed If true, award more points to cities with a lower number in the key
+ */
 function awardPoints(points, key, category, reversed) {
     cityData.forEach(city => {
         let value = category ? city[category][key] : city[key];

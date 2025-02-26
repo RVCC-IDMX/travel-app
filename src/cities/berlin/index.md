@@ -8,7 +8,7 @@ locationCountry: Germany
 hotWeather : 1
 coldWeather: 2
 wetWeather: 1
-mountains: 1
+mountains: 0
 forests: 2
 coast: 0
 desert: 0
@@ -20,7 +20,7 @@ zoo: 2
 aquarium: 1
 museum: 3
 monument: 3
-theater: 1
+theater: 3
 historicSite: 3
 stadium: 2
 religious: 2

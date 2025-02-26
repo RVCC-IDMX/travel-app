@@ -3,7 +3,7 @@ title: Herkimer
 date: 2025-02-19
 description: A small, calm town on the north side of the Mohawk River, known for its quartz "Herkimer Diamond" deposits.
 size: 15000
-locationState: NJ
+locationState: NY
 locationCountry: USA
 hotWeather : 0
 coldWeather: 1
