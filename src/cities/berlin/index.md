@@ -47,3 +47,8 @@ All of the numerical stuff (except for size) in the frontmatter use the followin
 3 = specificially famous for it
 
 For size put in the population number.
+
+
+Berlin is the capital of Germany. It is known for its history, art, and culture. The Holocaust Memorial and Berlin Wall is a must see if you are someone who likes visiting historical monuments and seeing modern architecture. Berlin also has art treasures from around the world. It is a city of trends. A popular destination when visiting Europe. The best way to get around Berlin is by taxi, ride sharing apps, and public transportation.
+
+Image link: https://www.getsready.com/wp-content/uploads/2016/10/most-famous-bridge-at-berlin.jpg
