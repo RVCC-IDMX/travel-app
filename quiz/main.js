@@ -68,28 +68,28 @@ async function createQuiz() {
     });
 
     eventHelper('2-longer', 'click', () => {
-        console.log('Remove small cities.');
+        console.log('Remove small cities, +2 Points for big cities');
         removeCity('size', '', smallCityThreshold, '>');
         awardPoints(2, 'size', '');
         questionAdvance(q2, q3);
     });
 
     eventHelper('3-warm', 'click', () => {
-        console.log('Keep only warm cities.');
+        console.log('Remove non-warm cities.');
         removeCity('hot', 'weather', weatherThreshold, '>=');
         awardPoints(1, 'hot', 'weather');
         questionAdvance(q3, q4);
     });
 
     eventHelper('3-cold', 'click', () => {
-        console.log('Keep only cold cities.');
+        console.log('Remove non-cold cities.');
         removeCity('cold', 'weather', weatherThreshold, '>=');
         awardPoints(1, 'cold', 'weather');
         questionAdvance(q3, q4);
     });
 
     eventHelper('3-wet', 'click', () => {
-        console.log('Keep only wet cities.');
+        console.log('Remove non-wet cities.');
         removeCity('wet', 'weather', weatherThreshold, '>=');
         awardPoints(1, 'wet', 'weather');
         questionAdvance(q3, q4);
@@ -101,14 +101,14 @@ async function createQuiz() {
     });
 
     eventHelper('4-cozy', 'click', () => {
-        console.log('+2 Points for small cities.');
+        console.log('Remove big cities, +2 Points for small cities.');
         removeCity('size', '', smallCityThreshold, '<');
         awardPoints(2, 'size', '', true);
         questionAdvance(q4, q5);
     });
 
     eventHelper('4-bustling', 'click', () => {
-        console.log('+2 Points for big cities.');
+        console.log('Remove small cities, +2 Points for big cities.');
         removeCity('size', '', smallCityThreshold, '>');
         awardPoints(2, 'size', '');
         questionAdvance(q4, q5);
@@ -120,42 +120,42 @@ async function createQuiz() {
     });
 
     eventHelper('5-jungle', 'click', () => {
-        console.log('Remove cities where jungle is not highest in environments.');
+        console.log('Remove cities where jungle does not meet enviorment threshold, +1 point for jungle');
         removeCity('jungle', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'jungle', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-forest', 'click', () => {
-        console.log('Remove cities where forest is not highest in environments.');
+        console.log('Remove cities where forests does not meet enviorment threshold, +1 point for forests');
         removeCity('forests', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'forests', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-desert', 'click', () => {
-        console.log('Remove cities where desert is not highest in environments.');
+        console.log('Remove cities where desert does not meet enviorment threshold, +1 point for desert');
         removeCity('desert', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'desert', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-coastal', 'click', () => {
-        console.log('Remove cities where coastal is not highest in environments.');
+        console.log('Remove cities where coast does not meet enviorment threshold, +1 point for coast');
         removeCity('coast', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'coast', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-mountains', 'click', () => {
-        console.log('Remove cities where mountains is not highest in environments.');
+        console.log('Remove cities where mountains does not meet enviorment threshold, +1 point for mountains');
         removeCity('mountains', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'mountains', 'environment');
         questionAdvance(q5, q6);
     });
 
     eventHelper('5-cityscape', 'click', () => {
-        console.log('Remove cities where cityscape is not highest in environments.');
+        console.log('Remove cities where cityscape does not meet enviorment threshold, +1 point for cityscape');
         removeCity('cityscape', 'environment', weatherThreshold, '>=');
         awardPoints(1, 'cityscape', 'environment');
         questionAdvance(q5, q6);
@@ -167,19 +167,19 @@ async function createQuiz() {
     });
 
     eventHelper('6-fine', 'click', () => {
-        console.log('+1 Point for fine.');
+        console.log('+1 Point for fine food.');
         awardPoints(1, 'foodFine', 'food');
         questionAdvance(q6, q7);
     });
 
     eventHelper('6-casual', 'click', () => {
-        console.log('+1 Point for casual.');
+        console.log('+1 Point for casual food.');
         awardPoints(1, 'foodCasual', 'food');
         questionAdvance(q6, q7);
     });
 
     eventHelper('7-yes', 'click', () => {
-        console.log('Remove cities with a score lower than 2.');
+        console.log('Remove cities where shopping does not meet shopping threshold, +1 point for shopping');
         removeCity('shopping', '', shoppingThreshold, '>=');
         awardPoints(1, 'shopping', '');
         questionAdvance(q7, q8);
@@ -201,98 +201,98 @@ async function createQuiz() {
     });
 
     eventHelper('9a-natural-wonder', 'click', () => {
-        // console.log('Remove cities where Natural Wonder is not the highest rated.');
+        console.log('Remove cities where naturalWonder does not meet attraction threshold, +1 point for naturalWonder');
         removeCity('naturalWonder', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'naturalWonder', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-monument', 'click', () => {
-        // console.log('Remove cities where Monument is not the highest rated.');
+        console.log('Remove cities where monument does not meet attraction threshold, +1 point for monument');
         removeCity('monument', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'monument', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-historic-site', 'click', () => {
-        // console.log('Remove cities where Historic Site is not the highest rated.');
+        console.log('Remove cities where historicSite does not meet attraction threshold, +1 point for historicSite');
         removeCity('historicSite', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'historicSite', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-religious-site', 'click', () => {
-        // console.log('Remove cities where Religious Site is not the highest rated.');
+        console.log('Remove cities where religious does not meet attraction threshold, +1 point for religious');
         removeCity('religious', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'religious', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-museum', 'click', () => {
-        // console.log('Remove cities where Museum is not the highest rated.');
+        console.log('Remove cities where museum does not meet attraction threshold, +1 point for museum');
         removeCity('museum', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'museum', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-stadium', 'click', () => {
-        // console.log('Remove cities where Stadium is not the highest rated.');
+        console.log('Remove cities where stadium does not meet attraction threshold, +1 point for stadium');
         removeCity('stadium', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'stadium', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9a-theatre', 'click', () => {
-        // console.log('Remove cities where Stadium is not the highest rated.');
+        console.log('Remove cities where theatre does not meet attraction threshold, +1 point for theatre');
         removeCity('theatre', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'theatre', 'attraction');
         questionAdvance(q9a, q10);
     });
 
     eventHelper('9b-natural-wonder', 'click', () => {
-        // console.log('Remove cities where Natural Wonder is not the highest rated.');
+        console.log('Remove cities where naturalWonder does not meet attraction threshold, +1 point for naturalWonder');
         removeCity('naturalWonder', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'naturalWonder', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-aquarium', 'click', () => {
-        // console.log('Remove cities where Aquarium is not the highest rated.');
+        console.log('Remove cities where aquarium does not meet attraction threshold, +1 point for aquarium');
         removeCity('aquarium', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'aquarium', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-amusement-park', 'click', () => {
-        // console.log('Remove cities where Amusement Park is not the highest rated.');
+        console.log('Remove cities where amusementPark does not meet attraction threshold, +1 point for amusementPark');
         removeCity('amusementPark', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'amusementPark', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-zoo', 'click', () => {
-        // console.log('Remove cities where Zoo is not the highest rated.');
+        console.log('Remove cities where zoo does not meet attraction threshold, +1 point for zoo');
         removeCity('zoo', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'zoo', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-museum', 'click', () => {
-        // console.log('Remove cities where Museum is not the highest rated.');
+        console.log('Remove cities where museum does not meet attraction threshold, +1 point for museum');
         removeCity('museum', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'museum', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-stadium', 'click', () => {
-        // console.log('Remove cities where Stadium is not the highest rated.');
+        console.log('Remove cities where stadium does not meet attraction threshold, +1 point for stadium');
         removeCity('stadium', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'stadium', 'attraction');
         questionAdvance(q9b);
     });
 
     eventHelper('9b-theatre', 'click', () => {
-        // console.log('Remove cities where Stadium is not the highest rated.');
+        console.log('Remove cities where theatre does not meet attraction threshold, +1 point for theatre');
         removeCity('theatre', 'attraction', attractionThreshold, '>=');
         awardPoints(1, 'theatre', 'attraction');
         questionAdvance(q9b);
@@ -304,14 +304,14 @@ async function createQuiz() {
     });
 
     eventHelper('10-somewhat-important', 'click', () => {
-        console.log('Remove cities with under 1 in nightlife.');
+        console.log('Remove cities where nightLife does not meet nightLife threshold - 1, +1 point for nightLife.');
         awardPoints(1, 'nightLife', '');
         removeCity('nightlife', '', (nightlifeThreshold - 1), '>=');
         questionAdvance(q10);
     });
 
     eventHelper('10-very-important', 'click', () => {
-        console.log('Remove cities with under 2 in nightlife.');
+        console.log('Remove cities where nightLife does not meet nightLife threshold, +2 point for nightLife.');
         removeCity('nightlife', '', (nightlifeThreshold), '>=');
         awardPoints(2, 'nightLife', '');
         questionAdvance(q10);
@@ -499,15 +499,8 @@ function printCityElements() {
 };
 
 function endQuiz() {
-    console.log('Quiz Finished');
-
     questions.remove();
-
-    cityData.forEach(city => {
-        console.log(`${city.name} got ${city.points} points.`)
-    });
 };
-
 
 // There has got to be a better way to do this
 function visualizeData() {
@@ -543,8 +536,6 @@ function visualizeData() {
     let shoppingCityCount = 0;
 
     cityData.forEach(city => {
-        console.log(smallCityThreshold)
-
         if (city.location.country === 'USA') usCityCount++;
 
         if (city.size < smallCityThreshold) smallCityCount++;
