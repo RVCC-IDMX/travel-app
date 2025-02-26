@@ -9,7 +9,7 @@
 - [ ] Rio de Janeiro
 - [ ] Cario
 - [x] London (NA)
-- [ ] Madrid (NA)
+- [x] Madrid (NA)
 - [ ] Barcelona (NA)
 - [ ] Rome (NA)
 
