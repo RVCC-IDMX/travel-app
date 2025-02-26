@@ -8,7 +8,7 @@
 - [ ] Sydney
 - [ ] Rio de Janeiro
 - [ ] Cario
-- [ ] London (NA)
+- [x] London (NA)
 - [ ] Madrid (NA)
 - [ ] Barcelona (NA)
 - [ ] Rome (NA)
