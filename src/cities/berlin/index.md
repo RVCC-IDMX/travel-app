@@ -1,7 +1,7 @@
 ---
 title: Berlin
 date: 2025-02-19
-description: Short description of the city's highlights in about a sentence.
+description: The Largest captial and city of Germany, with historical landmarks, cultural scene, and a unique blend of modern and historical architecture.
 size: 3,660,000
 locationState: Berlin
 locationCountry: Germany
@@ -32,18 +32,6 @@ foodCasual: 2
 shopping: 2
 ---
 
-Put article content here formatted in Markdown.
+Berlin is the largest captial and city of Germany. It has a usually cooler climate with lots of tourist attractions. It features attractions like, Brandenburg Gate, Jewish Museum Berlin, and Kurfürstendamm (Ku'damm).
 
-Images can go in the same folder.
-
-You can put images into the city's folder and link them with markdown.
-
-
-All of the numerical stuff (except for size) in the frontmatter use the following numbers:
-
-0 = not present
-1 = present
-2 = known for it
-3 = specificially famous for it
-
-For size put in the population number.
+![Cityscape of Berlin](BerlinGermany.jpeg "Berlin, Germany")
