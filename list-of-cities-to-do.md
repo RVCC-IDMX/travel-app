@@ -5,9 +5,9 @@
 - [x] Tokyo
 - [x] Bangkok
 - [x] Berlin
-- [x] Sydney
-- [x] Rio de Janeiro
-- [x] Cario
+- [ ] Sydney
+- [ ] Rio de Janeiro
+- [ ] Cario
 - [ ] London (NA)
 - [ ] Madrid (NA)
 - [ ] Barcelona (NA)
