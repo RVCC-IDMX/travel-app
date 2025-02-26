@@ -12,6 +12,7 @@ const q10 = document.getElementById('question-10');
 
 const cityContainer = document.getElementById('city-container');
 const questions = document.getElementById('questions');
+const visualizer = document.getElementById('visualizer');
 
 const smallPopulationNumber = 50000;
 const weatherThreshold = 2;
@@ -30,6 +31,8 @@ async function createQuiz() {
     await getCityData();
 
     normalizeSize();
+
+    visualizeData();
 
     printCityElements();
 
@@ -99,12 +102,14 @@ async function createQuiz() {
 
     eventHelper('4-cozy', 'click', () => {
         console.log('+2 Points for small cities.');
+        removeCity('size', '', smallCityThreshold, '<');
         awardPoints(2, 'size', '', true);
         questionAdvance(q4, q5);
     });
 
     eventHelper('4-bustling', 'click', () => {
         console.log('+2 Points for big cities.');
+        removeCity('size', '', smallCityThreshold, '>');
         awardPoints(2, 'size', '');
         questionAdvance(q4, q5);
     });
@@ -301,13 +306,13 @@ async function createQuiz() {
     eventHelper('10-somewhat-important', 'click', () => {
         console.log('Remove cities with under 1 in nightlife.');
         awardPoints(1, 'nightLife', '');
-        removeCity('nightlife', '', (attractionThreshold - 1), '>=');
+        removeCity('nightlife', '', (nightlifeThreshold - 1), '>=');
         questionAdvance(q10);
     });
 
     eventHelper('10-very-important', 'click', () => {
         console.log('Remove cities with under 2 in nightlife.');
-        removeCity('nightlife', '', (attractionThreshold - 1), '>=');
+        removeCity('nightlife', '', (nightlifeThreshold), '>=');
         awardPoints(2, 'nightLife', '');
         questionAdvance(q10);
     });
@@ -501,6 +506,113 @@ function endQuiz() {
     cityData.forEach(city => {
         console.log(`${city.name} got ${city.points} points.`)
     });
+};
+
+
+// There has got to be a better way to do this
+function visualizeData() {
+    let usCityCount = 0;
+
+    let smallCityCount = 0;
+
+    let coldCityCount = 0;
+    let hotCityCount = 0;
+    let wetCityCount = 0;
+
+    let mountainsCityCount = 0;
+    let forestsCityCount = 0;
+    let coastCityCount = 0;
+    let desertCityCount = 0;
+    let cityscapeCityCount = 0;
+    let jungleCityCount = 0;
+
+    let amusementParkCityCount = 0;
+    let zooCityCount = 0;
+    let aquariumCityCount = 0;
+    let museumCityCount = 0;
+    let monumentCityCount = 0;
+    let theaterCityCount = 0;
+    let historicSiteCityCount = 0;
+    let stadiumCityCount = 0;
+    let religiousCityCount = 0;
+    let naturalWonderCityCount = 0;
+
+    let goodNightlifeCityCount = 0;
+    let greatNightlifeCityCount = 0;
+
+    let shoppingCityCount = 0;
+
+    cityData.forEach(city => {
+        console.log(smallCityThreshold)
+
+        if (city.location.country === 'USA') usCityCount++;
+
+        if (city.size < smallCityThreshold) smallCityCount++;
+
+        if (city.weather.cold >= weatherThreshold) coldCityCount++;
+        if (city.weather.hot >= weatherThreshold) hotCityCount++;
+        if (city.weather.wet >= weatherThreshold) wetCityCount++;
+
+        if (city.environment.mountains >= environmentThreshold) mountainsCityCount++;
+        if (city.environment.forests >= environmentThreshold) forestsCityCount++;
+        if (city.environment.coast >= environmentThreshold) coastCityCount++;
+        if (city.environment.desert >= environmentThreshold) desertCityCount++;
+        if (city.environment.cityscape >= environmentThreshold) cityscapeCityCount++;
+        if (city.environment.jungle >= environmentThreshold) jungleCityCount++;
+
+        if (city.attraction.amusementPark >= attractionThreshold) amusementParkCityCount++;
+        if (city.attraction.zoo >= attractionThreshold) zooCityCount++;
+        if (city.attraction.aquarium >= attractionThreshold) aquariumCityCount++;
+        if (city.attraction.museum >= attractionThreshold) museumCityCount++;
+        if (city.attraction.monument >= attractionThreshold) monumentCityCount++;
+        if (city.attraction.theater >= attractionThreshold) theaterCityCount++;
+        if (city.attraction.historicSite >= attractionThreshold) historicSiteCityCount++;
+        if (city.attraction.stadium >= attractionThreshold) stadiumCityCount++;
+        if (city.attraction.religious >= attractionThreshold) religiousCityCount++;
+        if (city.attraction.naturalWonder >= attractionThreshold) naturalWonderCityCount++;
+
+        if (city.attraction.naturalWonder >= nightlifeThreshold - 1 && city.attraction.naturalWonder < nightlifeThreshold) goodNightlifeCityCount++;
+        if (city.attraction.naturalWonder >= nightlifeThreshold) greatNightlifeCityCount++;
+        
+        if (city.shopping >= shoppingThreshold) shoppingCityCount++;
+    });
+
+    document.getElementById('us-city-percent').innerHTML = visualizerGetPercentage(usCityCount);
+
+    document.getElementById('small-city-percent').innerHTML = visualizerGetPercentage(smallCityCount);
+
+    document.getElementById('cold-city-percent').innerHTML = `Cold: ${visualizerGetPercentage(coldCityCount)}% | ${coldCityCount} cities`;
+    document.getElementById('hot-city-percent').innerHTML = `Hot: ${visualizerGetPercentage(hotCityCount)}% | ${hotCityCount} cities`;
+    document.getElementById('wet-city-percent').innerHTML = `Wet: ${visualizerGetPercentage(wetCityCount)}% | ${wetCityCount} cities`;
+
+    document.getElementById('mountains-city-percent').innerHTML = `Mountains: ${visualizerGetPercentage(mountainsCityCount)}% | ${mountainsCityCount} cities`;
+    document.getElementById('forests-city-percent').innerHTML = `Forests: ${visualizerGetPercentage(forestsCityCount)}% | ${forestsCityCount} cities`;
+    document.getElementById('coast-city-percent').innerHTML = `Coast: ${visualizerGetPercentage(coastCityCount)}% | ${coastCityCount} cities`;
+    document.getElementById('desert-city-percent').innerHTML = `Desert: ${visualizerGetPercentage(desertCityCount)}% | ${desertCityCount} cities`;
+    document.getElementById('cityscape-city-percent').innerHTML = `Cityscape: ${visualizerGetPercentage(cityscapeCityCount)}% | ${cityscapeCityCount} cities`;
+    document.getElementById('jungle-city-percent').innerHTML = `Jungle: ${visualizerGetPercentage(jungleCityCount)}% | ${jungleCityCount} cities`;
+
+    document.getElementById('amusement-park-city-percent').innerHTML = `Amusement Park: ${visualizerGetPercentage(amusementParkCityCount)}% | ${amusementParkCityCount} cities`;
+    document.getElementById('zoo-city-percent').innerHTML = `Zoo: ${visualizerGetPercentage(zooCityCount)}% | ${zooCityCount} cities`;
+    document.getElementById('aquarium-city-percent').innerHTML = `Aquarium: ${visualizerGetPercentage(aquariumCityCount)}% | ${aquariumCityCount} cities`;
+    document.getElementById('museum-city-percent').innerHTML = `Museum: ${visualizerGetPercentage(museumCityCount)}% | ${museumCityCount} cities`;
+    document.getElementById('monument-city-percent').innerHTML = `Monument: ${visualizerGetPercentage(monumentCityCount)}% | ${monumentCityCount} cities`;
+    document.getElementById('theater-city-percent').innerHTML = `Theater: ${visualizerGetPercentage(theaterCityCount)}% | ${theaterCityCount} cities`;
+    document.getElementById('historic-site-city-percent').innerHTML = `Historic Site: ${visualizerGetPercentage(historicSiteCityCount)}% | ${historicSiteCityCount} cities`;
+    document.getElementById('stadium-city-percent').innerHTML = `Stadium: ${visualizerGetPercentage(stadiumCityCount)}% | ${stadiumCityCount} cities`;
+    document.getElementById('religious-city-percent').innerHTML = `Religious: ${visualizerGetPercentage(religiousCityCount)}% | ${religiousCityCount} cities`;
+    document.getElementById('natural-wonder-city-percent').innerHTML = `NaturalWonder: ${visualizerGetPercentage(naturalWonderCityCount)}% | ${naturalWonderCityCount} cities`;
+
+    document.getElementById('good-nightlife-city-percent').innerHTML = `Good Nightlife: ${visualizerGetPercentage(goodNightlifeCityCount)}% | ${goodNightlifeCityCount} cities`;
+    document.getElementById('great-nightlife-city-percent').innerHTML = `Great Nightlife: ${visualizerGetPercentage(greatNightlifeCityCount)}% | ${greatNightlifeCityCount} cities`;
+
+    document.getElementById('shopping-city-percent').innerHTML = `${visualizerGetPercentage(shoppingCityCount)}% | ${shoppingCityCount} cities`;
+};
+
+function visualizerGetPercentage(count) {
+    let cityCount = cityData.length;
+
+    return ((count / cityCount) * 100).toFixed(2);
 }
 
 // Dont refrence DOM elements before it has loaded
