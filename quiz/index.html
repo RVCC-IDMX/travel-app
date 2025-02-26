@@ -6,133 +6,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>City Quiz</title>
 </head>
 
 <body>
-    <h1>City Quiz</h1>
+    <h1 id="header">City Quiz</h1>
 
-    <br>
+    <div id="quiz-container">
+        <section id="questions">
+            <div id='question-1' style="display: block;">
+                <h2>1. Are you trying to get out of the US?</h2>
 
-    <div id='question-1' style="display: block;">
-        <h2>1. Are you trying to get out of the US?</h2>
+                <div class="answer-container">
+                    <button id="1-yes">Yes.</button>
+                    <button id="1-no">No.</button>
+                    <button id="1-no-pref">I'm up for anything.</button>
+                </div>
+            </div>
 
-        <div class="answer-container">
-            <button id="1-yes">Yes.</button>
-            <button id="1-no">No.</button>
-            <button id="1-no-pref">I'm up for anything.</button>
-        </div>
+            <div id='question-2' style="display: none;">
+                <h2>2. How long are you trying to get away?</h2>
+
+                <div class="answer-container">
+                    <button id="2-weekend">A Weekend.</button>
+                    <button id="2-week">A Week.</button>
+                    <button id="2-longer">More than a Week.</button>
+                </div>
+            </div>
+
+            <div id='question-3' style="display: none;">
+                <h2>3. What type of weather are you looking for?</h2>
+
+                <div class="answer-container">
+                    <button id="3-warm">I want warmth.</button>
+                    <button id="3-cold">I want the cold.</button>
+                    <button id="3-wet">I want humidity.</button>
+                    <button id="3-no-pref">I'm up for anything.</button>
+                </div>
+            </div>
+
+            <div id='question-4' style="display: none;">
+                <h2>4. What type of city is calling you?</h2>
+
+                <div class="answer-container">
+                    <button id="4-cozy">Cozy City.</button>
+                    <button id="4-bustling">Bustling City.</button>
+                    <button id="4-no-pref">I'm up for anything.</button>
+                </div>
+            </div>
+
+            <div id='question-5' style="display: none;">
+                <h2>5. What environment is calling you?</h2>
+
+                <div class="answer-container">
+                    <button id="5-jungle">Jungle.</button>
+                    <button id="5-forest">Forest.</button>
+                    <button id="5-desert">Desert.</button>
+                    <button id="5-coastal">Coastal.</button>
+                    <button id="5-mountains">Mountains.</button>
+                    <button id="5-cityscape">Cityscape.</button>
+                    <button id="5-no-pref">I'm up for anything.</button>
+                </div>
+            </div>
+
+            <div id='question-6' style="display: none;">
+                <h2>6. What style of food do you want?</h2>
+
+                <div class="answer-container">
+                    <button id="6-fine">Fine dining.</button>
+                    <button id="6-casual">Casual food.</button>
+                </div>
+            </div>
+
+            <div id='question-7' style="display: none;">
+                <h2>7. Are you looking to go on a shopping spree?</h2>
+
+                <div class="answer-container">
+                    <button id="7-yes">Yes.</button>
+                    <button id="7-no">No.</button>
+                </div>
+            </div>
+
+            <div id='question-8' style="display: none;">
+                <h2>8. Are you bringing the whole family?</h2>
+
+                <div class="answer-container">
+                    <button id="8-yes">Yes.</button>
+                    <button id="8-no">No, I need a break.</button>
+                </div>
+            </div>
+
+            <div id='question-9a' style="display: none;">
+                <h2>9. Which of these attractions do you care the most about?</h2>
+
+                <div class="answer-container">
+                    <button id="9a-natural-wonder">Natural Wonder.</button>
+                    <button id="9a-monument">Monument.</button>
+                    <button id="9a-historic-site">Historic Site.</button>
+                    <button id="9a-religious-site">Religious Site.</button>
+                    <button id="9a-museum">Museum.</button>
+                    <button id="9a-stadium">Stadium.</button>
+                    <button id="9a-theatre">Theatre.</button>
+                </div>
+            </div>
+
+            <div id='question-9b' style="display: none;">
+                <h2>9. Which of these attractions do you care the most about?</h2>
+
+                <div class="answer-container">
+                    <button id="9b-natural-wonder">Natural Wonder.</button>
+                    <button id="9b-aquarium">Aquarium.</button>
+                    <button id="9b-amusement-park">Amusement Park.</button>
+                    <button id="9b-zoo">Zoo.</button>
+                    <button id="9b-museum">Museum.</button>
+                    <button id="9b-stadium">Stadium.</button>
+                    <button id="9b-theatre">Theatre.</button>
+                </div>
+            </div>
+
+            <div id='question-10' style="display: none;">
+                <h2>10. How important is the nightlife to you?</h2>
+
+                <div class="answer-container">
+                    <button id="10-not-important">I just want to sleep.</button>
+                    <button id="10-somewhat-important">I want to be able to go out.</button>
+                    <button id="10-very-important">I need good nightlife.</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="remaining-cities">
+            <h2>Remaining cities:</h2>
+            <div id="city-container"></div>
+        </section>
     </div>
 
-    <div id='question-2' style="display: none;">
-        <h2>2. How long are you trying to get away?</h2>
-
-        <div class="answer-container">
-            <button id="2-weekend">A Weekend.</button>
-            <button id="2-week">A Week.</button>
-            <button id="2-longer">More than a Week.</button>
-        </div>
-    </div>
-
-    <div id='question-3' style="display: none;">
-        <h2>3. What type of weather are you looking for?</h2>
-
-        <div class="answer-container">
-            <button id="3-warm">I want warmth.</button>
-            <button id="3-cold">I want the cold.</button>
-            <button id="3-wet">I want humidity.</button>
-            <button id="3-no-pref">I'm up for anything.</button>
-        </div>
-    </div>
-
-    <div id='question-4' style="display: none;">
-        <h2>4. What type of city is calling you?</h2>
-
-        <div class="answer-container">
-            <button id="4-cozy">Cozy City.</button>
-            <button id="4-bustling">Bustling City.</button>
-            <button id="4-no-pref">I'm up for anything.</button>
-        </div>
-    </div>
-
-    <div id='question-5' style="display: none;">
-        <h2>5. What environment is calling you?</h2>
-
-        <div class="answer-container">
-            <button id="5-jungle">Jungle.</button>
-            <button id="5-forest">Forest.</button>
-            <button id="5-desert">Desert.</button>
-            <button id="5-coastal">Coastal.</button>
-            <button id="5-mountains">Mountains.</button>
-            <button id="5-cityscape">Cityscape.</button>
-            <button id="5-no-pref">I'm up for anything.</button>
-        </div>
-    </div>
-
-    <div id='question-6' style="display: none;">
-        <h2>6. What style of food do you want?</h2>
-
-        <div class="answer-container">
-            <button id="6-fine">Fine dining.</button>
-            <button id="6-casual">Casual food.</button>
-        </div>
-    </div>
-
-    <div id='question-7' style="display: none;">
-        <h2>7. Are you looking to go on a shopping spree?</h2>
-
-        <div class="answer-container">
-            <button id="7-yes">Yes.</button>
-            <button id="7-no">No.</button>
-        </div>
-    </div>
-
-    <div id='question-8' style="display: none;">
-        <h2>8. Are you bringing the whole family?</h2>
-
-        <div class="answer-container">
-            <button id="8-yes">Yes.</button>
-            <button id="8-no">No, I need a break.</button>
-        </div>
-    </div>
-
-    <div id='question-9a' style="display: none;">
-        <h2>9. Which of these attractions do you care the most about?</h2>
-
-        <div class="answer-container">
-            <button id="9a-natural-wonder">Natural Wonder.</button>
-            <button id="9a-monument">Monument.</button>
-            <button id="9a-historic-site">Historic Site.</button>
-            <button id="9a-religious-site">Religious Site.</button>
-            <button id="9a-museum">Museum.</button>
-            <button id="9a-stadium">Stadium.</button>
-            <button id="9a-theatre">Theatre.</button>
-        </div>
-    </div>
-
-    <div id='question-9b' style="display: none;">
-        <h2>9. Which of these attractions do you care the most about?</h2>
-
-        <div class="answer-container">
-            <button id="9b-natural-wonder">Natural Wonder.</button>
-            <button id="9b-aquarium">Aquarium.</button>
-            <button id="9b-amusement-park">Amusement Park.</button>
-            <button id="9b-zoo">Zoo.</button>
-            <button id="9b-museum">Museum.</button>
-            <button id="9b-stadium">Stadium.</button>
-            <button id="9b-theatre">Theatre.</button>
-        </div>
-    </div>
-
-    <div id='question-10' style="display: none;">
-        <h2>10. How important is the nightlife to you?</h2>
-
-        <div class="answer-container">
-            <button id="10-not-important">I just want to sleep.</button>
-            <button id="10-somewhat-important">I want to be able to go out.</button>
-            <button id="10-very-important">I need good nightlife.</button>
-        </div>
-    </div>
     <script src="main.js"></script>
 </body>
 

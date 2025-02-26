@@ -8,7 +8,7 @@ locationCountry: France
 hotWeather : 1
 coldWeather: 1
 wetWeather: 1
-mountains: 1
+mountains: 0
 forests: 1
 coast: 0
 desert: 0
@@ -20,12 +20,12 @@ zoo: 1
 aquarium: 1
 museum: 3
 monument: 3
-theater: 1
+theater: 3
 historicSite: 3
 stadium: 1
 religious: 2
 nature: 1
-nightLife: 2
+nightLife: 3
 publicTransit: 3
 foodFine: 3
 foodCasual: 3

@@ -1,0 +1,24 @@
+body {
+    background-color: #222;
+    color: aliceblue;
+}
+
+h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+section {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    border: 5px solid aliceblue;
+}
+
+#quiz-container {
+    display: flex;
+    width: fit-content;
+    gap: 20px;
+    margin: 10px auto;
+}

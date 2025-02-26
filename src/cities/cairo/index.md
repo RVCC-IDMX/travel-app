@@ -7,7 +7,7 @@ locationState: Cairo
 locationCountry: Egypt
 hotWeather : 3
 coldWeather: 0
-wetWeather: 1
+wetWeather: 0
 mountains: 0
 forests: 1
 coast: 2
@@ -26,7 +26,7 @@ stadium: 1
 religious: 3
 nature: 3
 nightLife: 2
-publicTransit: 1
+publicTransit: 2
 foodFine: 2
 foodCasual: 2
 shopping: 3

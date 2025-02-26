@@ -4,10 +4,14 @@
 - [x] Paris
 - [x] Tokyo
 - [x] Bangkok
-- [ ] Berlin
+- [x] Berlin
 - [ ] Sydney
 - [ ] Rio de Janeiro
 - [ ] Cario
+- [ ] London (NA)
+- [ ] Madrid (NA)
+- [ ] Barcelona (NA)
+- [ ] Rome (NA)
 
 
 # Prof Caruso
