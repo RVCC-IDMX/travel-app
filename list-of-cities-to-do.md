@@ -8,6 +8,10 @@
 - [ ] Sydney
 - [ ] Rio de Janeiro
 - [ ] Cario
+- [ ] London (NA)
+- [ ] Madrid (NA)
+- [ ] Barcelona (NA)
+- [ ] Rome (NA)
 
 
 # Prof Caruso
