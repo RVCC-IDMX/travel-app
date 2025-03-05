@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="Page" href="europe.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Travel App</title>
@@ -13,77 +12,107 @@
 
 <body>
     <header>
-        <div class = "NavBar">
+        <div class="NavBar">
 
             <div class="Menu" id="myMenu">
 
-                <a href="javascript:void(0);"
-                class="icon" onclick="myFunction()">
-                        <i class="fa fa-bars"></i>
-                        </a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
 
-                <div class = "Destinations"></div>
-
-                <div class = "DropDown">
-
-                    <ul>
-                    <button class="europebtn">Europe
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-europe">
-                        <a href="#">City 1</a>
-                        <a href="#">City 2</a>
-                        <a href="#">City 3</a>
-                    </div>
-
-
-                    <li><a href = "europe.html">Europe</a></li>
-                    <li><a href = "#">North America</a></li>
-                    <li><a href = "#">Central America</a></li>
-                    <li><a href = "#">South America</a></li>
-                    </ul>
+                <div class="Destinations"></div>
                 
-                    
-                    
-                </div>
+                    <!--Europe Button-->
+                    <div class="DropDown">
+                        <button class="region-btn" data-target="dropdown-europe">
+                            Europe <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id ="dropdown-europe">
+                            <a href="europe.html">Paris</a>
+                            <a href="europe.html">London</a>
+                            <a href="europe.html">Rome</a>
+                        </div>
+
+                        <!-- North America Button-->
+                        <button class="region-btn" data-target="dropdown-north-america">
+                            North America <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="dropdown-north-america">
+                            <a href="northamerica.html">New York</a>
+                            <a href="northamerica.html">Los Angeles</a>
+                            <a href="northamerica.html">Toronto</a>
+                        </div>
+
+                        <!-- Central America Button-->
+                        <button class="region-btn" data-target="dropdown-central-america">
+                            Central America <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="dropdown-central-america">
+                            <a href="centralamerica.html">Mexico City</a>
+                            <a href="centralamerica.html">Panama City</a>
+                            <a href="centralamerica.html">San Jose</a>
+                        </div>
+
+                        <!-- South America Button-->
+                        <button class="region-btn" data-target="dropdown-south-america">
+                            South America <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="dropdown-south-america">
+                            <a href="southamerica.html">Buenos Aires</a>
+                            <a href="southamerica.html">Rio de Janeiro</a>
+                            <a href="southamerica.html">Bogota</a>
+                        </div>
+
+
 
                 
             </div>
 
-            <div class = "Title">Travel App</div>
 
-            <div class = "Profile">Profile</div>
+
+        </div>
+
+        <div class="Title">Travel App</div>
+
+        <div class="Profile">Profile</div>
+
+        </div>
+
 
         </div>
 
     </header>
 
-    <div class = "Body">
+    <div class="Body">
 
-        <div class = "CardHeader">
-            <div class = "SubTitle"><h1>Popular Destinations</h1></div>
+        <div class="CardHeader">
+            <div class="SubTitle">
+                <h1>Popular Destinations</h1>
+            </div>
 
-            <div class = "ExploreMore"><a href = "#"><h5>Explore more</h5></a></div>
+            <div class="ExploreMore"><a href="#">
+                    <h5>Explore more</h5>
+                </a></div>
         </div>
 
-        <div class = "CardContainer">
+        <div class="CardContainer">
 
-            <div class = "CardTemplate">
-                <div class = "CardData">
+            <div class="CardTemplate">
+                <div class="CardData">
                     <h4><b>New York</b></h4>
                     <p>The perfect destination for shopping and fashion</p>
                 </div>
             </div>
 
-            <div class = "CardTemplate">
-                <div class = "CardData">
+            <div class="CardTemplate">
+                <div class="CardData">
                     <h4><b>Paris</b></h4>
                     <p>The perfect destination for shopping and fashion</p>
                 </div>
             </div>
 
-            <div class = "CardTemplate">
-                <div class = "CardData">
+            <div class="CardTemplate">
+                <div class="CardData">
                     <h4><b>Tokyo</b></h4>
                     <p>The perfect destination for shopping and fashion</p>
                 </div>
@@ -91,14 +120,14 @@
 
         </div>
 
-            <div class = "QuizTemplate">
-                <div class = "CardData">
+        <div class="QuizTemplate">
+            <div class="CardData">
                 <h4><b>Quiz Section</b></h4>
                 <p></p>
             </div>
 
 
-            </div>
+        </div>
 
     </div>
 
@@ -106,4 +135,4 @@
 
 </body>
 
-</html> 
+</html>

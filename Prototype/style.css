@@ -47,6 +47,9 @@
     display: block;
 }
 
+.hidden {
+    display: none;
+}
 
 ul {
     list-style: none;
@@ -94,14 +97,40 @@ li:last-child {
 }
 
 .dropdown-europe {
-    display: none;
+    display: none; 
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 100;
     
 }
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 100;
+    min-width: 150px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-europe.show {
+    display: block; /* Show when "show" class is added */
+}
+
 
 .dropdown-europe a {
     float: none;
